@@ -1,0 +1,19 @@
+{
+  "name": "philip_nordstrom_productphotocarousel",
+  "version": "1.0.0",
+  "description": "Carousel component for Nordstrom clone.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Group-Four-Loop/Philip_Nordstrom_ProductPhotoCarousel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Group-Four-Loop/Philip_Nordstrom_ProductPhotoCarousel/issues"
+  },
+  "homepage": "https://github.com/Group-Four-Loop/Philip_Nordstrom_ProductPhotoCarousel#readme"
+}
