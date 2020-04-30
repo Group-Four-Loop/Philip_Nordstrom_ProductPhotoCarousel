@@ -2,9 +2,10 @@
   "name": "philip_nordstrom_productphotocarousel",
   "version": "1.0.0",
   "description": "Carousel component for Nordstrom clone.",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode development -w"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/Group-Four-Loop/Philip_Nordstrom_ProductPhotoCarousel/issues"
   },
-  "homepage": "https://github.com/Group-Four-Loop/Philip_Nordstrom_ProductPhotoCarousel#readme"
+  "homepage": "https://github.com/Group-Four-Loop/Philip_Nordstrom_ProductPhotoCarousel#readme",
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^25.5.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
 }
