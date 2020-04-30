@@ -1,12 +1,7 @@
-import _ from 'lodash';
+// import Form from "./components/Form";
 
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App.js"
 
-function component() {
-  const element = document.createElement('div');
-
-  element.innerHTML = _.join(['Hello', 'hhhwebpack'], ' ');
-
-  return element;
-}
-
-document.body.appendChild(component());
+ReactDOM.render(<App />, document.getElementById('app'))
