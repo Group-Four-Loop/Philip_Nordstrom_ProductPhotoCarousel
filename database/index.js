@@ -52,17 +52,6 @@ module.exports = {
 
 
 
-    //   // versionsAvailable: {a: 'hello', b: 'world'}
-    //   //   1: ['https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1000,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.shopify.com/s/files/1/1104/4168/products/Allbirds_W_Wool_Runner_Kotare_GREY_ANGLE_0f3bfe63-ac7d-4106-9acf-d26f8414ac53.png?v=1571655724', 'https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1000,f_auto,q_auto,b_rgb:f5f5f5/https://cdn.shopify.com/s/files/1/1104/4168/products/Allbirds_W_Wool_Runner_Kotare_GREY_ANGLE_0f3bfe63-ac7d-4106-9acf-d26f8414ac53.png?v=1571655724']
-    //   // }
-    // }
-
-    // Carousel.insertOne(newItem)
-    // .then(result => {
-    //   console.log(`Successfully inserted ${result.insertedIds.length} items!`);
-    //   return result
-    // })
-    // .catch(err => console.error(`Failed to insert documents: ${err}`))
   },
 
   getAll: function(callback){
