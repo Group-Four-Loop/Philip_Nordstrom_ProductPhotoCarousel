@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "testjest": "jest",
-    "start": "webpack-dev-server --open --mode development"
+    "start": "webpack-dev-server --open --mode development",
+    "startex": "nodemon server/app.js",
+    "webpack": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
@@ -39,7 +41,11 @@
   },
   "dependencies": {
     "babel-jest": "^25.5.1",
+    "express": "^4.17.1",
     "lodash": "^4.17.15",
+    "mongoose": "^5.9.11",
+    "nodemon": "^2.0.3",
+    "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
