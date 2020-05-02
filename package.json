@@ -4,8 +4,7 @@
   "description": "Carousel component for Nordstrom clone.",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "testjest": "jest",
+    "test": "jest",
 
     "start": "nodemon server/app.js",
     "webpack": "webpack -d --watch",
