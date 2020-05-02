@@ -29,13 +29,13 @@ module.exports = {
   save: function() {
 
     let newItem = {
-      id: 4,
-      itemName: 'Nikeyyyyyyyy',
-      type: 'shoes for yo mommyya',
+      id: 0,
+      itemName: 'Bonobos Athletic Stretch Washed Chinos',
+      type: 'shoes',
       colors: {
-        color1:['hello', 'hello', 'hello', 'hello', 'hello', 'hello', 'hello', 'hello'],
-        color2:['there', 'there', 'there', 'there', 'there', 'there', 'there', 'there'],
-        color3:['world', 'world', 'world', 'world', 'world', 'world', 'world', 'world']
+        color1:['https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg', 'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg', 'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg'],
+        color2:['https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg', 'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg', 'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg'],
+        color3:['https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg', 'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg', 'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg']
       }
     }
 
@@ -63,8 +63,18 @@ module.exports = {
     //   return result
     // })
     // .catch(err => console.error(`Failed to insert documents: ${err}`))
+  },
+
+  getAll: function(callback){
+    Carousel.find({}, function (err, docs) {
+      if (err) {
+        console.log(err)
+      } else {
+        callback(docs)
+      }
+    })
+
   }
-  
 }
 
 
