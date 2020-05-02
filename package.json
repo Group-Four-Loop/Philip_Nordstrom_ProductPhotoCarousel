@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "testjest": "jest",
-    "start": "webpack-dev-server --open --mode development",
-    "startex": "nodemon server/app.js",
+
+    "start": "nodemon server/app.js",
     "webpack": "webpack -d --watch",
     "seed": "node database/seedDB.js"
   },

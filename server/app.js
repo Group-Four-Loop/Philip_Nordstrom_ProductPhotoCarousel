@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 1234;
+const port = 3333;
 const path = require('path');
 const { getAll } = require('../database/index.js')
 
