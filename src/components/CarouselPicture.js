@@ -1,10 +1,19 @@
 import React from 'react';
-// import styled from 'styled-components'
+import styled from 'styled-components';
 
-var CarouselPicture = function(){
+const Image = styled.img`
+  height: 100px;
+  width: 100%;
+  display: block;
+  position: relative;
+`
+
+
+var CarouselPicture = function(props){
+  console.log(props)
   return(
     <div>
-      <h4>h4Picture</h4>
+      <Image src={props.picture} alt="funky fresh shirt" />
     </div>
   )
 }
