@@ -6,6 +6,7 @@ const Image = styled.img`
   width: 100%;
   display: block;
   position: relative;
+  cursor: pointer;
 `
 
 
