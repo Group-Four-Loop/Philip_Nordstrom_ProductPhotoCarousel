@@ -31,7 +31,7 @@ module.exports = {
     let newItem = {
       id: 0,
       itemName: 'Bonobos Athletic Stretch Washed Chinos',
-      type: 'shoes',
+      type: 'pants',
       colors: {
         color1:['https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg', 'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg', 'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg'],
         color2:['https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg', 'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg', 'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/pants/Color_Wheat/05cae3f9-4440-4e4f-b17b-d55132be610f.jpg'],
@@ -47,11 +47,9 @@ module.exports = {
       } else {
         console.log('SUCCESS: ', item)
       }
-      // fluffy.speak();
     });
 
 
-//asdf
   },
 
   getAll: function(callback){
@@ -65,9 +63,5 @@ module.exports = {
 
   }
 }
-
-
-// save()
-
 
 
