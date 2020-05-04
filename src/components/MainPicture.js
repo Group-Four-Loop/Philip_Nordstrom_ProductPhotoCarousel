@@ -10,7 +10,7 @@ const MainImage = styled.img`
 
 
 var MainPicture = function(props){
-  console.log('MAIN PHOTO: ', props)
+  // console.log('MAIN PHOTO: ', props)
   return(
     <div>
       <MainImage src={props.mainPicture} alt="funky fresh shirt" />

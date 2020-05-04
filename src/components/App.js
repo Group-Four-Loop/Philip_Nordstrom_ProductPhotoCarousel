@@ -43,6 +43,14 @@ class App extends React.Component {
       pictures: [],
       mainPicture: ''
     };
+    this.updateMainPhoto = this.updateMainPhoto.bind(this);
+  }
+
+  updateMainPhoto(event){
+    this.setState({
+      mainPicture: event.target.src
+    })
+    console.log(event.target.src)
   }
 
   componentDidMount(){
@@ -59,7 +67,7 @@ class App extends React.Component {
         <AppContainer>
 
           <ProductGallery>
-            <Carousel pictures={this.state.pictures}/>
+            <Carousel pictures={this.state.pictures} updateMainPhoto={this.updateMainPhoto}/>
           </ProductGallery>
 
           <MainPhoto>

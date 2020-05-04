@@ -10,10 +10,10 @@ const Image = styled.img`
 
 
 var CarouselPicture = function(props){
-  console.log(props)
+  // console.log(props)
   return(
     <div>
-      <Image src={props.picture} alt="funky fresh shirt" />
+      <Image src={props.picture} alt="funky fresh shirt" onClick={props.updateMainPhoto} />
     </div>
   )
 }

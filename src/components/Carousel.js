@@ -10,12 +10,14 @@ const PictureContainer = styled.div`
 `
 
 var Carousel = function(props){
-  // console.log(props.pictures)
+  console.log(props)
   return(
     <div>
       <PictureContainer>
 
-        {props.pictures.map(picture => <CarouselPicture picture={picture}/>)}
+        {props.pictures.map(picture =>
+          <CarouselPicture picture={picture} updateMainPhoto={props.updateMainPhoto} />
+          )}
 
       </PictureContainer>
 
