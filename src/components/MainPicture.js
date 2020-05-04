@@ -25,7 +25,7 @@ var MainPicture = function(props){
   // console.log('MAIN PHOTO: ', props)
   return(
     <div>
-      <MainImage src={props.mainPicture} alt="funky fresh shirt" />
+      <MainImage src={props.mainPicture} alt="funky fresh shirt" onClick={props.openMainPhotoModul}/>
     </div>
   )
 }

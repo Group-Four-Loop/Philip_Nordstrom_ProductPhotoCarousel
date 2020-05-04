@@ -44,6 +44,7 @@ class App extends React.Component {
       mainPicture: ''
     };
     this.updateMainPhoto = this.updateMainPhoto.bind(this);
+    this.openMainPhotoModul = this.openMainPhotoModul.bind(this);
   }
 
   updateMainPhoto(event){
@@ -51,6 +52,10 @@ class App extends React.Component {
       mainPicture: event.target.src
     })
     console.log(event.target.src)
+  }
+
+  openMainPhotoModul(event){
+    console.log(event.target)
   }
 
   componentDidMount(){
@@ -71,7 +76,7 @@ class App extends React.Component {
           </ProductGallery>
 
           <MainPhoto>
-            <MainPicture mainPicture={this.state.mainPicture}/>
+            <MainPicture mainPicture={this.state.mainPicture} openMainPhotoModul={this.openMainPhotoModul}/>
           </MainPhoto>
 
         </AppContainer>
