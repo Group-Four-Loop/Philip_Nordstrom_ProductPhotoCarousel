@@ -16,17 +16,10 @@ var Carousel = function(props){
       <PictureContainer>
 
         {props.pictures.map(picture =>
-          <CarouselPicture picture={picture} updateMainPhoto={props.updateMainPhoto} />
+          <CarouselPicture picture={picture} updateMainPhoto={props.updateMainPhoto} key={picture}/>
           )}
 
       </PictureContainer>
-
-
-
-      {/* <CarouselPicture />
-      <CarouselPicture />
-      <CarouselPicture />
-      <CarouselPicture /> */}
 
     </div>
   )
