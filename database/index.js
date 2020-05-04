@@ -47,11 +47,9 @@ module.exports = {
       } else {
         console.log('SUCCESS: ', item)
       }
-      // fluffy.speak();
     });
 
 
-//asdf
   },
 
   getAll: function(callback){
@@ -65,9 +63,5 @@ module.exports = {
 
   }
 }
-
-
-// save()
-
 
 
