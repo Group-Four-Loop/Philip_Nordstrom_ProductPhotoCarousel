@@ -1,5 +1,8 @@
 import React from 'react';
 import CarouselPicture from './CarouselPicture.js';
+import styled from 'styled-components';
+
+
 
 var Carousel = function(){
   return(
