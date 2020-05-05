@@ -39,8 +39,10 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "babel-jest": "^25.5.1",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "lodash": "^4.17.15",
     "mongoose": "^5.9.11",
     "nodemon": "^2.0.3",
