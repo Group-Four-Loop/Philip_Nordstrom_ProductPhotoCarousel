@@ -8,9 +8,9 @@ import MainPicture from '../src/components/MainPicture.js';
 
 
 describe('<App />', () => {
-  it('renders any <Temp /> components exist in <App />', () => {
+  it('renders any <MainPicture /> components exist in <App />', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.containsMatchingElement(<Carousel />)).toBe(true);
+    // expect(wrapper.containsMatchingElement(<Carousel />)).toBe(true);
     expect(wrapper.containsMatchingElement(<MainPicture />)).toBe(true);
 
   });

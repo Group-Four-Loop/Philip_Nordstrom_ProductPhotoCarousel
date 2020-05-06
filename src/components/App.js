@@ -10,7 +10,7 @@ const ProductGallery = styled.h1`
   font-size: 1.5em;
   text-align: center;
   color: palevioletred;
-  outline: 2px solid red;
+  // outline: 2px solid red;
   height: 540px;
   width: 60px;
   position: relative;
@@ -63,6 +63,7 @@ class App extends React.Component {
     console.log(event.target)
   }
 
+
   moveForward(){
     // Using the variable 'newYCoord' helps avoid possible asyncronous issues w/ setState()
     var newYCoord = (this.state.currentCarouselYCoord + 500 > this.state.carouselLength) ? this.state.currentCarouselYCoord : this.state.currentCarouselYCoord + 500;
@@ -74,7 +75,7 @@ class App extends React.Component {
       top: newYCoord,
       behavior: 'smooth'
     })
-    console.log('CAROUSEL REF: ', newYCoord)
+    console.log('MOVE CAROUSEL FORWARD -> REF: ', newYCoord)
   }
 
   moveBackwards(){
@@ -87,7 +88,7 @@ class App extends React.Component {
       top: newYCoord,
       behavior: 'smooth'
     })
-    console.log('CAROUSEL REF: ', newYCoord)
+    console.log('MOVE CAROUSEL BACKWARDS -> REF: ', newYCoord)
   }
 
   componentDidMount(){
