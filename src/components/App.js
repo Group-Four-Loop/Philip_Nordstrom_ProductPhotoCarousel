@@ -45,7 +45,8 @@ class App extends React.Component {
       visiblePictures: [],
       mainPicture: '',
       currentImageIndex: 0,
-      currentCarouselYCoord: 0
+      currentCarouselYCoord: 0,
+      carouselLength: 0,
     };
     this.updateMainPhoto = this.updateMainPhoto.bind(this);
     this.openMainPhotoModul = this.openMainPhotoModul.bind(this);
@@ -66,7 +67,8 @@ class App extends React.Component {
 
   moveForward(){
     // helps avoid possible asyncronous issues w/ setState()
-    var newYCoord = this.state.currentCarouselYCoord + 20;
+    var newYCoord = (this.state.currentCarouselYCoord + 500 > this.state.carouselLength) ? this.state.currentCarouselYCoord : this.state.currentCarouselYCoord + 500;
+    // var newYCoord = this.state.currentCarouselYCoord + 500;
     this.setState({
       currentCarouselYCoord: newYCoord
     })
@@ -92,7 +94,7 @@ class App extends React.Component {
   }
 
   moveBackwards(){
-    var newYCoord = (this.state.currentCarouselYCoord === 0) ? this.state.currentCarouselYCoord : this.state.currentCarouselYCoord - 20;
+    var newYCoord = (this.state.currentCarouselYCoord === 0) ? this.state.currentCarouselYCoord : this.state.currentCarouselYCoord - 500;
     this.setState({
       currentCarouselYCoord: newYCoord
     })
@@ -129,7 +131,8 @@ class App extends React.Component {
       // handle success
       this.setState({
         pictures: response.data[indexOfItem].colors.color1,
-        mainPicture: response.data[indexOfItem].colors.color1[0]
+        mainPicture: response.data[indexOfItem].colors.color1[0],
+        carouselLength: response.data[indexOfItem].colors.color1.length * 100
       })
       console.log(response.data[indexOfItem], 'INDEX: ', indexOfItem);
     })
