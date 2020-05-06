@@ -1,0 +1,10 @@
+X Want to render all images in column.
+X hide overflow images
+X Using CSS, move images location on click
+
+X Add transition on images between state changes.
+
+shotgun method to research.
+manipulate css in chrome console for faster changes.
+smallest step forward
+make a list of steps to achieve final goal (see above)

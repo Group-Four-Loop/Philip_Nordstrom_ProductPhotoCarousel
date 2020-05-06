@@ -3,27 +3,23 @@ import CarouselPicture from './CarouselPicture.js';
 import styled from 'styled-components';
 
 const PictureContainer = styled.div`
-  height: 100px;
-  width: 100%;
+  height: 500px;
+  width: 60px;
   display: block;
   position: relative;
+  overflow-y: hidden;
 `
 
-var Carousel = function(props){
-  console.log(props)
-  return(
-    <div>
-      <PictureContainer>
+var Carousel = React.forwardRef((props, ref) => (
 
-        {props.pictures.map(picture =>
-          <CarouselPicture picture={picture} updateMainPhoto={props.updateMainPhoto} key={picture}/>
-          )}
+  <PictureContainer ref={ref}>
 
-      </PictureContainer>
+    {props.pictures.map(picture =>
+      <CarouselPicture picture={picture} updateMainPhoto={props.updateMainPhoto} key={picture}/>
+    )}
 
-    </div>
-  )
-}
+  </PictureContainer>
 
+))
 
 export default Carousel;
