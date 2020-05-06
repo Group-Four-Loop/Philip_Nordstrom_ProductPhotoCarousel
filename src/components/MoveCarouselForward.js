@@ -6,7 +6,6 @@ var MoveCarouselForward = function(props){
     Move Forwards
     </button>
   )
-  // console.log('hello world')
 }
 
 export default MoveCarouselForward;

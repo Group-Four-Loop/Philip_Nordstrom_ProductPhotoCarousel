@@ -8,14 +8,9 @@ const PictureContainer = styled.div`
   display: block;
   position: relative;
   overflow-y: hidden;
-
 `
 
-// return <div ref={this.myRef} />;
-
-
 var Carousel = React.forwardRef((props, ref) => (
-
 
   <PictureContainer ref={ref}>
 
@@ -26,6 +21,5 @@ var Carousel = React.forwardRef((props, ref) => (
   </PictureContainer>
 
 ))
-
 
 export default Carousel;
