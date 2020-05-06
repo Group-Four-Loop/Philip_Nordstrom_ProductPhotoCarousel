@@ -9,12 +9,22 @@ const Image = styled.img`
   cursor: pointer;
 `
 
+// const CarouselElement = styled.div`
+//   height: 100%;
+//   right: 0;
+//   position: absolute;
+//   display: none;
+//   overflow-y: auto;
+//   top: 0;
+//   left: 0;
+// `
+
 
 var CarouselPicture = function(props){
   return(
-    <div>
+    // <CarouselElement>
       <Image src={props.picture} alt="funky fresh shirt" onClick={props.updateMainPhoto} />
-    </div>
+    // </CarouselElement>
   )
 }
 

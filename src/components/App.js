@@ -38,11 +38,14 @@ const AppContainer = styled.div`
 class App extends React.Component {
   constructor(props){
     super(props);
+    this.carouselRef = React.createRef();
+
     this.state = {
       pictures: [],
       visiblePictures: [],
       mainPicture: '',
-      currentImageIndex: 0
+      currentImageIndex: 0,
+      currentCarouselYCoord: 0
     };
     this.updateMainPhoto = this.updateMainPhoto.bind(this);
     this.openMainPhotoModul = this.openMainPhotoModul.bind(this);
@@ -62,38 +65,56 @@ class App extends React.Component {
   }
 
   moveForward(){
-    // console.log('moving forward captain!');
-    // this.setState(prevState => {
-    //   return {currentImageIndex: prevState.currentImageIndex + 5}
-    // })
-
-    this.setState(prevState => {
-      //make sure the '- 5' is the size you want.  Make sure if there are different numbers of pictures, you aren't missing any.
-      if (prevState.currentImageIndex > this.state.pictures.length - 5) {
-        return {
-          currentImageIndex: prevState.currentImageIndex
-        }
-      } else {
-        return {
-          currentImageIndex: prevState.currentImageIndex + 5
-        }
-      }
+    // helps avoid possible asyncronous issues w/ setState()
+    var newYCoord = this.state.currentCarouselYCoord + 100;
+    this.setState({
+      currentCarouselYCoord: newYCoord
     })
+    this.carouselRef.current.scroll({
+      left: 0,
+      top: newYCoord,
+      behavior: 'smooth'
+    })
+    console.log('CAROUSEL REF: ', this.carouselRef.current)
+
+    // this.setState(prevState => {
+    //   if (prevState.currentImageIndex > this.state.pictures.length - 5) {
+    //     return {
+    //       currentImageIndex: prevState.currentImageIndex
+    //     }
+    //   } else {
+    //     return {
+    //       currentImageIndex: prevState.currentImageIndex + 5
+    //     }
+    //   }
+    // })
 
   }
 
   moveBackwards(){
-    this.setState(prevState => {
-      if (prevState.currentImageIndex < 5) {
-        return {
-          currentImageIndex: prevState.currentImageIndex
-        }
-      } else {
-        return {
-          currentImageIndex: prevState.currentImageIndex - 5
-        }
-      }
+    var newYCoord = this.state.currentCarouselYCoord - 100;
+    this.setState({
+      currentCarouselYCoord: newYCoord
     })
+    this.carouselRef.current.scroll({
+      left: 0,
+      top: newYCoord,
+      behavior: 'smooth'
+    })
+    console.log('CAROUSEL REF: ', this.carouselRef.current)
+
+
+    // this.setState(prevState => {
+    //   if (prevState.currentImageIndex < 5) {
+    //     return {
+    //       currentImageIndex: prevState.currentImageIndex
+    //     }
+    //   } else {
+    //     return {
+    //       currentImageIndex: prevState.currentImageIndex - 5
+    //     }
+    //   }
+    // })
   }
 
   componentDidMount(){
@@ -130,7 +151,7 @@ class App extends React.Component {
   }
 
   render() {
-    var fiveImages = this.state.pictures.slice(this.state.currentImageIndex, this.state.currentImageIndex + 5)
+    // var fiveImages = this.state.pictures.slice(this.state.currentImageIndex, this.state.currentImageIndex + 5)
 
     return(
       <div>
@@ -138,7 +159,7 @@ class App extends React.Component {
         <AppContainer>
 
           <ProductGallery>
-            <Carousel pictures={fiveImages} updateMainPhoto={this.updateMainPhoto}/>
+            <Carousel pictures={this.state.pictures} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}/>
           </ProductGallery>
 
           <MainPhoto>
