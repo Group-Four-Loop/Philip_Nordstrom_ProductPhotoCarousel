@@ -3,12 +3,10 @@ import CarouselPicture from './CarouselPicture.js';
 import styled from 'styled-components';
 
 const PictureContainer = styled.div`
-  height: 550px;
-  width: 100%;
+  height: 500px;
+  width: 60px;
   display: block;
   position: relative;
-  // background-color: red;
-  // margin: 200px;
   overflow-y: hidden;
 
 `

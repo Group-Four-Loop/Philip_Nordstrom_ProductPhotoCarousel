@@ -66,7 +66,7 @@ class App extends React.Component {
 
   moveForward(){
     // helps avoid possible asyncronous issues w/ setState()
-    var newYCoord = this.state.currentCarouselYCoord + 100;
+    var newYCoord = this.state.currentCarouselYCoord + 20;
     this.setState({
       currentCarouselYCoord: newYCoord
     })
@@ -75,7 +75,7 @@ class App extends React.Component {
       top: newYCoord,
       behavior: 'smooth'
     })
-    console.log('CAROUSEL REF: ', this.carouselRef.current)
+    console.log('CAROUSEL REF: ', newYCoord)
 
     // this.setState(prevState => {
     //   if (prevState.currentImageIndex > this.state.pictures.length - 5) {
@@ -92,7 +92,7 @@ class App extends React.Component {
   }
 
   moveBackwards(){
-    var newYCoord = this.state.currentCarouselYCoord - 100;
+    var newYCoord = (this.state.currentCarouselYCoord === 0) ? this.state.currentCarouselYCoord : this.state.currentCarouselYCoord - 20;
     this.setState({
       currentCarouselYCoord: newYCoord
     })
@@ -101,7 +101,7 @@ class App extends React.Component {
       top: newYCoord,
       behavior: 'smooth'
     })
-    console.log('CAROUSEL REF: ', this.carouselRef.current)
+    console.log('CAROUSEL REF: ', newYCoord)
 
 
     // this.setState(prevState => {
