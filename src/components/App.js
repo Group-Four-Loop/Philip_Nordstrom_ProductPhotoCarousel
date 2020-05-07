@@ -5,6 +5,7 @@ import MainPicture from './MainPicture.js';
 import MoveCarouselForward from './MoveCarouselForward.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import axios from 'axios';
+import { chev } from '../shapes.js';
 
 const ProductGallery = styled.h1`
   font-size: 1.5em;
@@ -137,6 +138,10 @@ class App extends React.Component {
 
 
         </AppContainer>
+        {/* <div>
+        <svg focusable="false" height="9" width="16"><path d="M8.002 8L1 1m7.002 7L15 1.004"></path></svg>
+
+        </div> */}
       </div>
     )
   }
