@@ -125,7 +125,7 @@ class App extends React.Component {
         <AppContainer>
 
           <ProductGallery>
-            <Carousel pictures={this.state.pictures} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}/>
+            <Carousel pictures={this.state.pictures} mainPicture={this.state.mainPicture} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}/>
           </ProductGallery>
 
           <MainPhoto>

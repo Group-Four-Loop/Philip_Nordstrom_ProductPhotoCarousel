@@ -20,8 +20,12 @@ const UnderLine = styled.div`
   height: 4px;
   width: 100%;
   background-color: #fff;
+  transition: background 0.4s;
+  background: ${props => props.matchesMainPicture ? "#737373" : "white"};
+
+
   ${Wrapper}:hover & {
-    background: #737373;
+    background: #adadad;
   };
 `
 
@@ -29,10 +33,17 @@ const UnderLine = styled.div`
 
 
 var CarouselPicture = function(props){
+  console.log('PROPS IN CAROUSEL PICTURE: ', props.mainPictureMatchesPicture)
+  // var matching = true;
+  // if (props.picture === props.mainPicture) {
+  //   console.log('THE PICTURE MATCHES')
+  // } else {
+  //   console.log('FAILURE')
+  // }
   return(
     <Wrapper>
       <Image src={props.picture} alt="funky fresh shirt" onClick={props.updateMainPhoto} />
-      <UnderLine></UnderLine>
+      <UnderLine matchesMainPicture={props.mainPictureMatchesPicture}></UnderLine>
     </Wrapper>
   )
 }
