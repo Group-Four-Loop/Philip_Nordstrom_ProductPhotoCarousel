@@ -12,7 +12,7 @@ const ProductGallery = styled.h1`
   text-align: center;
   color: palevioletred;
   outline: 1px dashed green;
-  height: 580px;
+  height: 510px;
   width: 60px;
   position: relative;
   display: flex;
@@ -21,7 +21,7 @@ const ProductGallery = styled.h1`
 
 const CarouselContainer = styled.div`
   outline: 1px dashed purple;
-  height: 540px;
+  height: 520px;
   width: 60px;
 `
 

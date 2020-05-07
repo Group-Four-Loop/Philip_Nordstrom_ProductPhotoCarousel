@@ -9,18 +9,21 @@ const ButtonMoveBackwards = styled.div`
   display: block;
   position: relative;
   outline: 1px dashed blue;
-
-
 `
 
+const Container = styled.div`
+  padding-left: 20px;
+`
 
 var MoveCarouselBackwards = function(props){
   return(
-    <ButtonMoveBackwards onClick={props.moveBackwards}>
-      <svg focusable="false" height="9" width="16">
-        <path d="M7.998 1L15 8M7.998 1L1 7.996" stroke="#393939"></path>
-      </svg>
-    </ButtonMoveBackwards>
+      <ButtonMoveBackwards onClick={props.moveBackwards}>
+        <Container>
+          <svg focusable="false" height="9" width="16">
+            <path d="M7.998 1L15 8M7.998 1L1 7.996" stroke="#393939"></path>
+          </svg>
+        </Container>
+      </ButtonMoveBackwards>
   )
 }
 
