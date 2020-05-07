@@ -7,7 +7,7 @@ const ButtonMoveForward = styled.div`
   width: 60px;
   display: block;
   position: relative;
-  // outline: 2px solid blue;s
+  outline: 1px dashed red;
 
 
 `

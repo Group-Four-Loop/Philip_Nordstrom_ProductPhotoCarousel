@@ -8,7 +8,7 @@ const ButtonMoveBackwards = styled.div`
   width: 60px;
   display: block;
   position: relative;
-  // outline: 2px solid blue;
+  outline: 1px dashed blue;
 
 
 `

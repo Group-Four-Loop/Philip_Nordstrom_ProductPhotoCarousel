@@ -51,6 +51,7 @@ class App extends React.Component {
     this.openMainPhotoModul = this.openMainPhotoModul.bind(this);
     this.moveForward = this.moveForward.bind(this);
     this.moveBackwards = this.moveBackwards.bind(this);
+    this.getInfo = this.getInfo.bind(this);
   }
 
   updateMainPhoto(event){
@@ -63,7 +64,6 @@ class App extends React.Component {
   openMainPhotoModul(event){
     console.log(event.target)
   }
-
 
   moveForward(){
     // Using the variable 'newYCoord' helps avoid possible asyncronous issues w/ setState()
@@ -92,7 +92,7 @@ class App extends React.Component {
     console.log('MOVE CAROUSEL BACKWARDS -> REF: ', newYCoord)
   }
 
-  componentDidMount(){
+  getInfo(){
     let indexOfItem = 0;
     let integerBetweenOneAndThree = function() {
       indexOfItem += Math.floor(Math.random() * (99) + 1);
@@ -113,9 +113,15 @@ class App extends React.Component {
       // handle error
       console.log(error);
     })
-    .finally(() => {
-      // always executed
-    });
+    //I have commented out .finally() because it doesn't seem to be supported by jest, and it is preventing me from writing more tests.
+
+    // .finally(() => {
+    //   // always executed
+    // });
+  }
+
+  componentDidMount(){
+    this.getInfo()
   }
 
   render() {
