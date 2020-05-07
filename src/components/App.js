@@ -11,13 +11,19 @@ const ProductGallery = styled.h1`
   font-size: 1.5em;
   text-align: center;
   color: palevioletred;
-  // outline: 2px solid red;
-  height: 540px;
+  outline: 1px dashed green;
+  height: 580px;
   width: 60px;
   position: relative;
   display: flex;
   justify-content: center;
 `;
+
+const CarouselContainer = styled.div`
+  outline: 1px dashed purple;
+  height: 540px;
+  width: 60px;
+`
 
 const MainPhoto = styled.h1`
   font-size: 1.5em;
@@ -130,17 +136,21 @@ class App extends React.Component {
       <div>
         <h1>Nordstrom Photo Gallery</h1>
         <AppContainer>
+          <CarouselContainer>
+            <MoveCarouselBackwards moveBackwards={this.moveBackwards}/>
 
-          <ProductGallery>
-            <Carousel pictures={this.state.pictures} mainPicture={this.state.mainPicture} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}/>
-          </ProductGallery>
+            <ProductGallery>
+              <Carousel pictures={this.state.pictures} mainPicture={this.state.mainPicture} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}/>
+            </ProductGallery>
+
+            <MoveCarouselForward moveForward={this.moveForward}/>
+          </CarouselContainer>
 
           <MainPhoto>
             <MainPicture mainPicture={this.state.mainPicture} openMainPhotoModul={this.openMainPhotoModul}/>
+
           </MainPhoto>
 
-          <MoveCarouselForward moveForward={this.moveForward}/>
-          <MoveCarouselBackwards moveBackwards={this.moveBackwards}/>
 
 
         </AppContainer>
