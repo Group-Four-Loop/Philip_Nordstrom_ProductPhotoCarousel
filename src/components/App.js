@@ -5,12 +5,13 @@ import MainPicture from './MainPicture.js';
 import MoveCarouselForward from './MoveCarouselForward.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import axios from 'axios';
+import { chev } from '../shapes.js';
 
 const ProductGallery = styled.h1`
   font-size: 1.5em;
   text-align: center;
   color: palevioletred;
-  outline: 2px solid red;
+  // outline: 2px solid red;
   height: 540px;
   width: 60px;
   position: relative;
@@ -50,6 +51,7 @@ class App extends React.Component {
     this.openMainPhotoModul = this.openMainPhotoModul.bind(this);
     this.moveForward = this.moveForward.bind(this);
     this.moveBackwards = this.moveBackwards.bind(this);
+    this.getInfo = this.getInfo.bind(this);
   }
 
   updateMainPhoto(event){
@@ -74,7 +76,7 @@ class App extends React.Component {
       top: newYCoord,
       behavior: 'smooth'
     })
-    console.log('CAROUSEL REF: ', newYCoord)
+    console.log('MOVE CAROUSEL FORWARD -> REF: ', newYCoord)
   }
 
   moveBackwards(){
@@ -87,10 +89,10 @@ class App extends React.Component {
       top: newYCoord,
       behavior: 'smooth'
     })
-    console.log('CAROUSEL REF: ', newYCoord)
+    console.log('MOVE CAROUSEL BACKWARDS -> REF: ', newYCoord)
   }
 
-  componentDidMount(){
+  getInfo(){
     let indexOfItem = 0;
     let integerBetweenOneAndThree = function() {
       indexOfItem += Math.floor(Math.random() * (99) + 1);
@@ -111,9 +113,15 @@ class App extends React.Component {
       // handle error
       console.log(error);
     })
-    .finally(() => {
-      // always executed
-    });
+    //I have commented out .finally() because it doesn't seem to be supported by jest, and it is preventing me from writing more tests.
+
+    // .finally(() => {
+    //   // always executed
+    // });
+  }
+
+  componentDidMount(){
+    this.getInfo()
   }
 
   render() {
@@ -124,7 +132,7 @@ class App extends React.Component {
         <AppContainer>
 
           <ProductGallery>
-            <Carousel pictures={this.state.pictures} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}/>
+            <Carousel pictures={this.state.pictures} mainPicture={this.state.mainPicture} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}/>
           </ProductGallery>
 
           <MainPhoto>
@@ -136,6 +144,10 @@ class App extends React.Component {
 
 
         </AppContainer>
+        {/* <div>
+        <svg focusable="false" height="9" width="16"><path d="M8.002 8L1 1m7.002 7L15 1.004"></path></svg>
+
+        </div> */}
       </div>
     )
   }

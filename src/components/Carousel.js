@@ -15,7 +15,13 @@ var Carousel = React.forwardRef((props, ref) => (
   <PictureContainer ref={ref}>
 
     {props.pictures.map(picture =>
-      <CarouselPicture picture={picture} updateMainPhoto={props.updateMainPhoto} key={picture}/>
+      <CarouselPicture
+        picture={picture}
+        mainPicture={props.mainPicture}
+        mainPictureMatchesPicture={props.mainPicture === picture}
+        updateMainPhoto={props.updateMainPhoto}
+        key={picture}
+      />
     )}
 
   </PictureContainer>
