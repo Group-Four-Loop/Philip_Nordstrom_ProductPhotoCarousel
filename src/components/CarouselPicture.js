@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div``
 
-
 const Image = styled.img`
   height: 90px;
   width: 100%;
@@ -31,9 +30,9 @@ const UnderLine = styled.div`
 
 
 
-
 var CarouselPicture = function(props){
   console.log('PROPS IN CAROUSEL PICTURE: ', props.mainPictureMatchesPicture)
+  console.log(props)
   // var matching = true;
   // if (props.picture === props.mainPicture) {
   //   console.log('THE PICTURE MATCHES')

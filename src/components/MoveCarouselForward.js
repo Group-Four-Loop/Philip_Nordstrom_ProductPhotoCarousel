@@ -13,6 +13,7 @@ const ButtonMoveForward = styled.div`
 `
 
 var MoveCarouselForward = function(props){
+  console.log('PROPS IN MOVING FORWARD CAROSEL: ', props)
   return(
     <ButtonMoveForward onClick={props.moveForward}>
       <svg focusable="false" height="9" width="16">

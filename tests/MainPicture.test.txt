@@ -1,0 +1,15 @@
+import { shallow } from 'enzyme';
+import React from 'react';
+import MainPicture from '../src/components/Carousel.js';
+import CarouselPicture from '../src/components/CarouselPicture.js';
+
+
+describe('<MainPicture />', () => {
+  it('renders the picture that it recieves through props', () => {
+    const wrapper = shallow(<MainPicture src={'anicephoto.jpg'} />);
+    expect(wrapper.containsMatchingElement(<CarouselPicture/>)).toBe(true);
+    expect(wrapper.find('MainImage')).toHaveLength(items.length);
+
+  });
+
+})
