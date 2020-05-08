@@ -4,4 +4,4 @@ const magnifyingGlass = `data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkP
 
 
 
-export default { magnifyingGlass };
+export default magnifyingGlass;

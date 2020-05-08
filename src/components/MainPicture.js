@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { magnifyingGlass } from '../shapes.js';
+import magnifyingGlass from '../shapes.js';
 
 const Container = styled.div`
   flex: 1;
