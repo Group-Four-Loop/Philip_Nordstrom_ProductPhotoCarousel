@@ -5,7 +5,7 @@ import MainPicture from './MainPicture.js';
 import MoveCarouselForward from './MoveCarouselForward.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import axios from 'axios';
-import { chev } from '../shapes.js';
+// import { pointer } from '../shapes.js';
 
 const ProductGallery = styled.h1`
   font-size: 1.5em;

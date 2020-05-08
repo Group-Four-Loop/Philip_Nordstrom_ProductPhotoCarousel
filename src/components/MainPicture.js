@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import pointer from '../shapes.js';
+import { magnifyingGlass } from '../shapes.js';
 
 const Container = styled.div`
   flex: 1;
@@ -15,7 +15,7 @@ const MainImage = styled.img`
   width: 540px;
   display: block;
   position: relative;
-  cursor: url(${pointer}) 20 20,pointer!important;
+  cursor: url(${magnifyingGlass}) 20 20,pointer!important;
 `
 
 var MainPicture = function(props){
