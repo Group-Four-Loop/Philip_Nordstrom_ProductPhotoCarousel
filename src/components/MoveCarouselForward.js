@@ -7,7 +7,8 @@ const ButtonMoveForward = styled.div`
   width: 60px;
   display: block;
   position: relative;
-  outline: 1px dashed red;
+  // outline: 1px dashed red;
+  cursor: pointer;
 `
 
 const Container = styled.div`
@@ -16,16 +17,21 @@ const Container = styled.div`
 
 var MoveCarouselForward = function(props){
   console.log('PROPS IN MOVING FORWARD CAROSEL: ', props)
-  return(
+  if (props.moveForwardVisible === true) {
+    return(
 
-    <ButtonMoveForward onClick={props.moveForward}>
-      <Container>
-        <svg focusable="false" height="9" width="16">
-          <path d="M8.002 8L1 1m7.002 7L15 1.004" stroke="#393939"></path>
-        </svg>
-      </Container>
-    </ButtonMoveForward>
-  )
+      <ButtonMoveForward onClick={props.moveForward}>
+        <Container>
+          <svg focusable="false" height="9" width="16">
+            <path d="M8.002 8L1 1m7.002 7L15 1.004" stroke="#393939"></path>
+          </svg>
+        </Container>
+      </ButtonMoveForward>
+    )
+  } else {
+    return null;
+  }
+
 }
 
 export default MoveCarouselForward;

@@ -8,7 +8,9 @@ const ButtonMoveBackwards = styled.div`
   width: 60px;
   display: block;
   position: relative;
-  outline: 1px dashed blue;
+  // outline: 1px dashed blue;
+  cursor: pointer;
+
 `
 
 const Container = styled.div`
@@ -16,7 +18,9 @@ const Container = styled.div`
 `
 
 var MoveCarouselBackwards = function(props){
-  return(
+  console.log('PROPS IN MOVING backwards CAROSEL: ', props)
+  if (props.moveBackwardsVisible === true) {
+    return(
       <ButtonMoveBackwards onClick={props.moveBackwards}>
         <Container>
           <svg focusable="false" height="9" width="16">
@@ -24,7 +28,10 @@ var MoveCarouselBackwards = function(props){
           </svg>
         </Container>
       </ButtonMoveBackwards>
-  )
+    )
+  } else {
+    return null;
+  }
 }
 
 //style={{backgroundColor: 'grey'}}
