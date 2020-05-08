@@ -16,7 +16,7 @@ const Container = styled.div`
 `
 
 var MoveCarouselForward = function(props){
-  console.log('PROPS IN MOVING FORWARD CAROSEL: ', props)
+  // console.log('PROPS IN MOVING FORWARD CAROSEL: ', props)
   if (props.moveForwardVisible === true) {
     return(
 

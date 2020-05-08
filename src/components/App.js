@@ -5,6 +5,7 @@ import MainPicture from './MainPicture.js';
 import MoveCarouselForward from './MoveCarouselForward.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import axios from 'axios';
+import Modal from './Modal.js'
 // import { pointer } from '../shapes.js';
 
 const ProductGallery = styled.h1`
@@ -53,12 +54,15 @@ class App extends React.Component {
       carouselLength: 0,
       moveForwardVisible: true,
       moveBackwardsVisible: false,
+      showModal: false
     };
     this.updateMainPhoto = this.updateMainPhoto.bind(this);
     this.openMainPhotoModul = this.openMainPhotoModul.bind(this);
     this.moveForward = this.moveForward.bind(this);
     this.moveBackwards = this.moveBackwards.bind(this);
     this.getInfo = this.getInfo.bind(this);
+    this.handleShowMessageClick = this.handleShowMessageClick.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   updateMainPhoto(event){
@@ -71,6 +75,15 @@ class App extends React.Component {
   openMainPhotoModul(event){
     // console.log(event.target)
   }
+
+  handleShowMessageClick(){
+    this.setState({ showModal: true });
+    // console.log('Should be displaying modal.')
+  }
+  handleCloseModal(){
+    this.setState({ showModal: false });
+  }
+
 
   moveForward(){
     // Using the variable 'newYCoord' helps avoid possible asyncronous issues w/ setState()
@@ -118,7 +131,8 @@ class App extends React.Component {
     this.carouselRef.current.scroll({
       left: 0,
       top: newYCoord,
-      behavior: 'smooth'
+      behavior: 'smooth',
+      // transition-duration: '5s'
     })
     // console.log('MOVE CAROUSEL BACKWARDS -> REF: ', newYCoord)
   }
@@ -172,8 +186,7 @@ class App extends React.Component {
           </CarouselContainer>
 
           <MainPhoto>
-            <MainPicture mainPicture={this.state.mainPicture} openMainPhotoModul={this.openMainPhotoModul}/>
-
+            <MainPicture mainPicture={this.state.mainPicture} openMainPhotoModul={this.openMainPhotoModul} handleShowMessageClick={this.handleShowMessageClick} />
           </MainPhoto>
 
 
@@ -183,6 +196,12 @@ class App extends React.Component {
         <svg focusable="false" height="9" width="16"><path d="M8.002 8L1 1m7.002 7L15 1.004"></path></svg>
 
         </div> */}
+        {this.state.showModal ? (
+            <Modal mainPicture={this.state.mainPicture} onClose={this.handleCloseModal}>
+              This is the secret modal message!
+            </Modal>
+          ) : null}
+
       </div>
     )
   }

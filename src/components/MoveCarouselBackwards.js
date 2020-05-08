@@ -18,7 +18,7 @@ const Container = styled.div`
 `
 
 var MoveCarouselBackwards = function(props){
-  console.log('PROPS IN MOVING backwards CAROSEL: ', props)
+  // console.log('PROPS IN MOVING backwards CAROSEL: ', props)
   if (props.moveBackwardsVisible === true) {
     return(
       <ButtonMoveBackwards onClick={props.moveBackwards}>
