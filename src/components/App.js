@@ -198,7 +198,17 @@ class App extends React.Component {
 
         </div> */}
         {this.state.showModal ? (
-              <Modal mainPicture={this.state.mainPicture} onClose={this.handleCloseModal} pictures={this.state.pictures} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}>
+              <Modal
+                mainPicture={this.state.mainPicture}
+                onClose={this.handleCloseModal}
+                pictures={this.state.pictures}
+                updateMainPhoto={this.updateMainPhoto}
+                ref={this.carouselRef}
+                // moveForward={this.moveForward}
+                // moveForwardVisible={this.state.moveForwardVisible}
+                // moveBackwards={this.moveBackwards}
+                // moveBackwardsVisible={this.state.moveBackwardsVisible}
+                >
               </Modal>
           ) : null}
 
