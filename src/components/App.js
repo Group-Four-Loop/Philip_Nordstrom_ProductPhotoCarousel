@@ -5,13 +5,14 @@ import MainPicture from './MainPicture.js';
 import MoveCarouselForward from './MoveCarouselForward.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import axios from 'axios';
+import Modal from './Modal.js'
 // import { pointer } from '../shapes.js';
 
 const ProductGallery = styled.h1`
   font-size: 1.5em;
   text-align: center;
   color: palevioletred;
-  outline: 1px dashed green;
+  // outline: 1px dashed green;
   height: 510px;
   width: 60px;
   position: relative;
@@ -20,7 +21,7 @@ const ProductGallery = styled.h1`
 `;
 
 const CarouselContainer = styled.div`
-  outline: 1px dashed purple;
+  // outline: 1px dashed purple;
   height: 520px;
   width: 60px;
 `
@@ -52,50 +53,89 @@ class App extends React.Component {
       currentImageIndex: 0,
       currentCarouselYCoord: 0,
       carouselLength: 0,
+      moveForwardVisible: true,
+      moveBackwardsVisible: false,
+      showModal: false
     };
     this.updateMainPhoto = this.updateMainPhoto.bind(this);
     this.openMainPhotoModul = this.openMainPhotoModul.bind(this);
     this.moveForward = this.moveForward.bind(this);
     this.moveBackwards = this.moveBackwards.bind(this);
     this.getInfo = this.getInfo.bind(this);
+    this.handleShowMessageClick = this.handleShowMessageClick.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   updateMainPhoto(event){
     this.setState({
       mainPicture: event.target.src
     })
-    console.log(event.target.src)
+    // console.log(event.target.src)
   }
 
   openMainPhotoModul(event){
-    console.log(event.target)
+    // console.log(event.target)
   }
+
+  handleShowMessageClick(){
+    this.setState({ showModal: true });
+    // console.log('Should be displaying modal.')
+  }
+  handleCloseModal(){
+    this.setState({ showModal: false });
+  }
+
 
   moveForward(){
     // Using the variable 'newYCoord' helps avoid possible asyncronous issues w/ setState()
     var newYCoord = (this.state.currentCarouselYCoord + 500 > this.state.carouselLength) ? this.state.currentCarouselYCoord : this.state.currentCarouselYCoord + 500;
+
+    //PLEASE NOTE: THIS IS GOING TO BE A BUG IF THERE ARE MORE THAN 10 OR LESS THAN 5 PICTURES.
+
+    // console.log('CAROUSEL Y-COORD: ',this.state.currentCarouselYCoord, 'CAROUSEL LENGTH: ', this.state.carouselLength, 'NEW COORD: ', newYCoord)
+
+    // var isForwardButtonVisibile;
+    // var isBackwardsButtonVisible;
+
+    // if (this.state.carouselLength - newYCoord < 500) {
+    //   isForwardButtonVisibile === false;
+    //   isBackwardsButtonVisible === true;
+    // } else {
+    //   isForwardButtonVisibile === true;
+    //   isBackwardsButtonVisible === false;
+    // }
+
+    // isForwardButtonVisibile === true;
+    // isBackwardsButtonVisible === true;
+
+
     this.setState({
-      currentCarouselYCoord: newYCoord
+      currentCarouselYCoord: newYCoord,
+      moveForwardVisible: false,//isForwardButtonVisibile,
+      moveBackwardsVisible: true//isBackwardsButtonVisible
     })
     this.carouselRef.current.scroll({
       left: 0,
       top: newYCoord,
       behavior: 'smooth'
     })
-    console.log('MOVE CAROUSEL FORWARD -> REF: ', newYCoord)
+    // console.log('MOVE CAROUSEL FORWARD -> REF: ', newYCoord)
   }
 
   moveBackwards(){
     var newYCoord = (this.state.currentCarouselYCoord === 0) ? this.state.currentCarouselYCoord : this.state.currentCarouselYCoord - 500;
     this.setState({
-      currentCarouselYCoord: newYCoord
+      currentCarouselYCoord: newYCoord,
+      moveForwardVisible: true,
+      moveBackwardsVisible: false
     })
     this.carouselRef.current.scroll({
       left: 0,
       top: newYCoord,
-      behavior: 'smooth'
+      behavior: 'smooth',
+      // transition-duration: '5s'
     })
-    console.log('MOVE CAROUSEL BACKWARDS -> REF: ', newYCoord)
+    // console.log('MOVE CAROUSEL BACKWARDS -> REF: ', newYCoord)
   }
 
   getInfo(){
@@ -137,18 +177,17 @@ class App extends React.Component {
         <h1>Nordstrom Photo Gallery</h1>
         <AppContainer>
           <CarouselContainer>
-            <MoveCarouselBackwards moveBackwards={this.moveBackwards}/>
+            <MoveCarouselBackwards moveBackwards={this.moveBackwards} moveBackwardsVisible={this.state.moveBackwardsVisible}/>
 
             <ProductGallery>
               <Carousel pictures={this.state.pictures} mainPicture={this.state.mainPicture} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}/>
             </ProductGallery>
 
-            <MoveCarouselForward moveForward={this.moveForward}/>
+            <MoveCarouselForward moveForward={this.moveForward} moveForwardVisible={this.state.moveForwardVisible}/>
           </CarouselContainer>
 
           <MainPhoto>
-            <MainPicture mainPicture={this.state.mainPicture} openMainPhotoModul={this.openMainPhotoModul}/>
-
+            <MainPicture mainPicture={this.state.mainPicture} openMainPhotoModul={this.openMainPhotoModul} handleShowMessageClick={this.handleShowMessageClick} />
           </MainPhoto>
 
 
@@ -158,6 +197,21 @@ class App extends React.Component {
         <svg focusable="false" height="9" width="16"><path d="M8.002 8L1 1m7.002 7L15 1.004"></path></svg>
 
         </div> */}
+        {this.state.showModal ? (
+              <Modal
+                mainPicture={this.state.mainPicture}
+                onClose={this.handleCloseModal}
+                pictures={this.state.pictures}
+                updateMainPhoto={this.updateMainPhoto}
+                ref={this.carouselRef}
+                // moveForward={this.moveForward}
+                // moveForwardVisible={this.state.moveForwardVisible}
+                // moveBackwards={this.moveBackwards}
+                // moveBackwardsVisible={this.state.moveBackwardsVisible}
+                >
+              </Modal>
+          ) : null}
+
       </div>
     )
   }
