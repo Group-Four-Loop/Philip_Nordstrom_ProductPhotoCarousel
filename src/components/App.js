@@ -40,6 +40,7 @@ const AppContainer = styled.div`
   outline: 2px solid black;
   display: flex;
 `;
+
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -197,9 +198,8 @@ class App extends React.Component {
 
         </div> */}
         {this.state.showModal ? (
-            <Modal mainPicture={this.state.mainPicture} onClose={this.handleCloseModal}>
-              This is the secret modal message!
-            </Modal>
+              <Modal mainPicture={this.state.mainPicture} onClose={this.handleCloseModal} pictures={this.state.pictures} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}>
+              </Modal>
           ) : null}
 
       </div>
