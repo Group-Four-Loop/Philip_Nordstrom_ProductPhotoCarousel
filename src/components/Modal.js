@@ -148,10 +148,10 @@ class Modal extends React.Component {
               <Carousel pictures={this.props.pictures} mainPicture={this.props.mainPicture} updateMainPhoto={this.props.updateMainPhoto} />
             </ProductGalleryInModal>
 
-            {/* <MoveCarouselForward
+            <MoveCarouselForward
               // moveForward={this.moveForward}
               // moveForwardVisible={this.state.moveForwardVisible}
-            /> */}
+            />
 
           </CarouselContainerInModal>
 

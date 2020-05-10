@@ -178,7 +178,7 @@ class App extends React.Component {
       behavior: 'smooth',
       // transition-duration: '5s'
     })
-    // console.log('MOVE CAROUSEL BACKWARDS -> REF: ', newYCoord)
+    console.log(this.carouselRef.current)
   }
 
   getInfo(){
