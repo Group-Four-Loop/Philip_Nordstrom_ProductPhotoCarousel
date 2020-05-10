@@ -30,12 +30,12 @@ let Carousel = mongoose.model('Carousel', carouselSchema)
 module.exports = {
   save: function() {
     let arrOfAllItems = [];
-    let shoesTotal = 100;
-    let pantsTotal = 500;
-    let shirtsTotal = 900;
+    // let shoesTotal = 100;
+    // let pantsTotal = 500;
+    // let shirtsTotal = 900;
 
     let shoesItem = {
-      id: 0,
+      id: 100,
       itemName: faker.commerce.productName(),
       type: 'shoes',
       colors: {
@@ -75,7 +75,7 @@ module.exports = {
     }
 
     let pantsItem = {
-      id: 0,
+      id: 500,
       itemName: faker.commerce.productName(),
       type: 'pants',
       colors: {
@@ -112,7 +112,7 @@ module.exports = {
     }
 
     let shirtItem = {
-      id: 0,
+      id: 900,
       itemName: faker.commerce.productName(),
       type: 'shirt',
       colors: {
@@ -157,6 +157,8 @@ module.exports = {
       for (var i = 0; i < 33; i++) {
         let item = new Carousel(shoesItem);
         arrOfAllItems.push(item);
+        shoesItem.id++;
+
       }
     }
 
@@ -164,6 +166,7 @@ module.exports = {
       for (var i = 0; i < 33; i++) {
         let item = new Carousel(pantsItem);
         arrOfAllItems.push(item);
+        pantsItem.id++;
       }
     }
 
@@ -171,6 +174,7 @@ module.exports = {
       for (var i = 0; i < 33; i++) {
         let item = new Carousel(shirtItem);
         arrOfAllItems.push(item);
+        shirtItem.id++;
       }
     }
 
@@ -197,24 +201,30 @@ module.exports = {
     // }
 
 
-    item.save(function (err, item) {
-      if (err){
-        console.error(err);
-      } else {
-        console.log('SUCCESS: ', item)
-      }
-    });
-
-    // Carousel.collection.insertMany(items())
-    // .then(() => {
-    //   console.log('we are seeded!')
-    // })
-    // .catch(err => {
-    //   console.log('not reseeded!')
+    // item.save(function (err, item) {
+    //   if (err){
+    //     console.error(err);
+    //   } else {
+    //     console.log('SUCCESS: ', item)
+    //   }
     // });
 
+    Carousel.collection.insertMany(arrOfAllItems)
+    .then(() => {
+      console.log('we are seeded!')
+    })
+    .catch(err => {
+      console.log('not reseeded!')
+    });
+
     //COME BACK TO THIS TO FINISH INSERT MANY!!!
-    carousels.insertMany(arr, function(error, docs) {});
+    // db.carousels.insertMany(arrOfAllItems, function(error, docs) {
+    //   if (error) {
+    //     console.log(error)
+    //   } else {
+    //     console.log(null, docs)
+    //   }
+    // });
 
 
   },

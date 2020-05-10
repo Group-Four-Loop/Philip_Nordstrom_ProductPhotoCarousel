@@ -7,7 +7,6 @@ import MoveCarouselForward from './MoveCarouselForward.js';
 
 const modalRoot = document.getElementById('modal-root');
 
-
 const MainModalContainer = styled.div`
   position: absolute;
   top: 0;
@@ -19,7 +18,8 @@ const MainModalContainer = styled.div`
   align-items: center;
   background-color: rgba(0,0,0,0.3);
   width: 100%;
-  height: 200%;
+  height: 100%;
+
 `;
 
 const ModalStyle = styled.div`
@@ -28,7 +28,7 @@ background: #fff;
 border-radius: 2px;
 display: inline-block;
 height: auto;
-width: 1350px; //1400px is likely max width.
+width: 1400px; //1400px is likely max width.
 position: relative;
 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 justify-self: center;
@@ -87,7 +87,8 @@ class Modal extends React.Component {
          <ModalStyle>
 
           <button onClick={this.props.onClose}>Close</button>
-          {/* <svg focusable="false" height="24" width="24">
+
+          <svg focusable="false" height="24" width="24">
 
             <ClosingModal>
               <circle cx="12" cy="12" r="11"></circle>
@@ -97,7 +98,7 @@ class Modal extends React.Component {
               <path d="M7 7l10 10m0-10L7 17"></path>
             </CloseModal>
 
-          </svg> */}
+          </svg>
 
           <MainPhotoContainer>
             <img src={this.props.mainPicture} height="auto" width="1280px" onClick={this.props.onClose}></img>
