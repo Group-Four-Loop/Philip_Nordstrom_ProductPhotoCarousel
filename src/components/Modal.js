@@ -85,6 +85,21 @@ const Picture = styled.img`
   width: 100%;
   height: auto;
 `
+
+const CloseButton = styled.button`
+  // font-size: 1em;
+  // margin: 1em;
+  // padding: 0.25em 1em;
+  // border: 2px solid black;
+  // border-radius: 50%;
+  // background-color: white;
+  // height: 30px;
+  // width: 30px;
+  position: fixed;
+  top: 0;
+`;
+
+
 class Modal extends React.Component {
   constructor(props){
     super(props);
@@ -97,7 +112,11 @@ class Modal extends React.Component {
       <MainModalContainer>
          <ModalStyle>
 
-          <button onClick={this.props.onClose}>Close</button>
+          <CloseButton>
+            <button onClick={this.props.onClose}>Close</button>
+          </CloseButton>
+
+
 {/*
           <svg focusable="false" height="24" width="24">
 
