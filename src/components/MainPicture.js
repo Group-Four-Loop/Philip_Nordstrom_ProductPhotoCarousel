@@ -13,6 +13,8 @@ const MainImage = styled.img`
   position: relative;
   cursor: url(${magnifyingGlass}) 20 20,pointer!important;
   outline: 2px solid red;
+  margin-left: 40px;
+  margin-right: 40px;
 
 `
 

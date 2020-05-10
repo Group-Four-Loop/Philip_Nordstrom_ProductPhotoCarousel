@@ -70,15 +70,20 @@ const ProductGalleryInModal = styled.h1`
 `;
 
 const MainPhotoContainer = styled.div`
-  border: 1px solid purple;
+  // border: 1px solid purple;
   overflow: hidden; /* if you don't want #second to wrap below #first */
-  // float: right;
-  // height: auto;
-  // width: 90%;
+  float: right;
+  height: auto;
+  width: 95%;
   // height: 300px;
   // width: auto;
   // display: flex;
 `;
+
+const Picture = styled.img`
+  width: 100%;
+  height: auto;
+`
 
 class Modal extends React.Component {
   constructor(props){
@@ -107,7 +112,7 @@ class Modal extends React.Component {
           </svg> */}
 
           <MainPhotoContainer>
-            <img src={this.props.mainPicture} onClick={this.props.onClose}></img>
+            <Picture src={this.props.mainPicture} onClick={this.props.onClose}></Picture>
           </MainPhotoContainer>
 
 
