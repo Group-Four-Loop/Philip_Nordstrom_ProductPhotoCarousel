@@ -51,17 +51,12 @@ const ButtonThree = styled.button`
   }
 `;
 
-
-
-
-
-
-
 const ButtonBox = styled.div`
 // border: 3px solid #73AD21;
 background: white;
 position: fixed;
 bottom: 0;
+// left: 60px;
 width: 100%;
 height: 89px;
 `
@@ -69,7 +64,11 @@ height: 89px;
 const Text = styled.div`
   margin-left: 18px;
   margin-top: 12px;
-`
+  font: Brandon Text;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #393939;
+`;
 
 //Color:3 {props.colorNames[2]}
 

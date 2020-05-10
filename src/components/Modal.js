@@ -122,6 +122,7 @@ class Modal extends React.Component {
             <button onClick={this.props.onClose}>Close</button>
           </CloseButton> */}
 
+          {/* NEED TO CONVERT THE BELOW FROM IN-LINE CSS TO STYLED COMPONENTS */}
           <CloseShape>
             <svg onClick={this.props.onClose} focusable="false" height="24" width="24" cursor="pointer">
               <g>
@@ -130,20 +131,6 @@ class Modal extends React.Component {
               </g>
             </svg>
           </CloseShape>
-
-
-{/*
-          <svg focusable="false" height="24" width="24">
-
-            <ClosingModal>
-              <circle cx="12" cy="12" r="11"></circle>
-            </ClosingModal>
-
-            <CloseModal>
-              <path d="M7 7l10 10m0-10L7 17"></path>
-            </CloseModal>
-
-          </svg> */}
 
           <MainPhotoContainer>
             <Picture src={this.props.mainPicture} onClick={this.props.onClose}></Picture>

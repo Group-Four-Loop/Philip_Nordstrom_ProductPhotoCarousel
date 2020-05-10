@@ -23,9 +23,12 @@ var MoveCarouselBackwards = function(props){
     return(
       <ButtonMoveBackwards onClick={props.moveBackwards}>
         <Container>
+
+          {/* NEED TO CONVERT THE BELOW FROM IN-LINE CSS TO STYLED COMPONENTS */}
           <svg focusable="false" height="9" width="16">
             <path d="M7.998 1L15 8M7.998 1L1 7.996" stroke="#393939"></path>
           </svg>
+
         </Container>
       </ButtonMoveBackwards>
     )
