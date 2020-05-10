@@ -135,6 +135,7 @@ class Modal extends React.Component {
             changeColorToItemOne={this.props.changeColorToItemOne}
             changeColorToItemTwo={this.props.changeColorToItemTwo}
             changeColorToItemThree={this.props.changeColorToItemThree}
+            currentColorName={this.props.currentColorName}
           />
 
           {/* {this.props.children} //Not sure what this code is supposed to do... */}

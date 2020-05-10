@@ -58,7 +58,8 @@ class App extends React.Component {
       moveBackwardsVisible: false,
       showModal: false,
       availableColors: [],
-      colorNames: []
+      colorNames: [],
+      currentColorName: ''
 
     };
     this.updateMainPhoto = this.updateMainPhoto.bind(this);
@@ -101,6 +102,7 @@ class App extends React.Component {
       pictures: this.state.availableColors.color1,
       mainPicture: this.state.availableColors.color1[0],
       carouselLength: this.state.availableColors.color1.length * 100,
+      currentColorName: this.state.colorNames[0]
     })
     console.log('changing color to color 1!')
   }
@@ -110,6 +112,7 @@ class App extends React.Component {
       pictures: this.state.availableColors.color2,
       mainPicture: this.state.availableColors.color2[0],
       carouselLength: this.state.availableColors.color2.length * 100,
+      currentColorName: this.state.colorNames[1]
     })
     console.log('changing color to color 2!')
   }
@@ -119,6 +122,7 @@ class App extends React.Component {
       pictures: this.state.availableColors.color3,
       mainPicture: this.state.availableColors.color3[0],
       carouselLength: this.state.availableColors.color3.length * 100,
+      currentColorName: this.state.colorNames[2]
     })
     console.log('changing color to color 3!')
   }
@@ -192,7 +196,8 @@ class App extends React.Component {
         mainPicture: response.data[indexOfItem].colors.color1[0],
         carouselLength: response.data[indexOfItem].colors.color1.length * 100,
         availableColors: response.data[indexOfItem].colors,
-        colorNames: response.data[indexOfItem].colorNames
+        colorNames: response.data[indexOfItem].colorNames,
+        currentColorName: response.data[indexOfItem].colorNames[0]
       })
       console.log(response.data[indexOfItem], 'INDEX: ', indexOfItem);
     })
@@ -250,6 +255,7 @@ class App extends React.Component {
                 changeColorToItemOne={this.changeColorToItemOne}
                 changeColorToItemTwo={this.changeColorToItemTwo}
                 changeColorToItemThree={this.changeColorToItemThree}
+                currentColorName={this.state.currentColorName}
                 // moveForward={this.moveForward}
                 // moveForwardVisible={this.state.moveForwardVisible}
                 // moveBackwards={this.moveBackwards}

@@ -35,23 +35,27 @@ const ButtonThree = styled.button`
 `;
 
 const ButtonBox = styled.div`
-// position:fixed;
-// z-index: -1;
-// position: relative;
-// left: 300px;
-border: 3px solid #73AD21;
+// border: 3px solid #73AD21;
 background: white;
 position: fixed;
 bottom: 0;
 width: 100%;
+height: 89px;
+`
+
+const Text = styled.div`
+  margin-left: 18px;
+  margin-top: 12px;
 `
 
 //Color:3 {props.colorNames[2]}
 
 var ModalColors = function(props){
+  console.log(props)
   return(
 
     <ButtonBox>
+      <Text>Color: {props.currentColorName}</Text>
       <ButtonOne onClick={props.changeColorToItemOne}></ButtonOne>
       <ButtonTwo onClick={props.changeColorToItemTwo}></ButtonTwo>
       <ButtonThree onClick={props.changeColorToItemThree}></ButtonThree>
