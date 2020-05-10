@@ -20,7 +20,6 @@ const MainModalContainer = styled.div`
   background-color: rgba(0,0,0,0.3);
   width: 100%;
   height: 100%;
-
 `;
 
 const ModalStyle = styled.div`
@@ -48,12 +47,14 @@ const ClosingModal = styled.div`
   stroke-miterlimit: 10;
 `;
 
-
-
 const CarouselContainerInModal = styled.div`
   // outline: 1px dashed purple;
   height: 520px;
   width: 60px;
+  position: fixed;
+  top: 20px;
+
+
 `;
 
 const ProductGalleryInModal = styled.h1`
@@ -84,7 +85,6 @@ const Picture = styled.img`
   width: 100%;
   height: auto;
 `
-
 class Modal extends React.Component {
   constructor(props){
     super(props);
