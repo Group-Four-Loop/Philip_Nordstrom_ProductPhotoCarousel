@@ -62,7 +62,7 @@ const ProductGalleryInModal = styled.h1`
   text-align: center;
   color: palevioletred;
   outline: 1px dashed green;
-  height: 510px;
+  height: 910px;  //COME BACK TO THIS
   width: 60px;
   position: relative;
   display: flex;
@@ -86,7 +86,7 @@ const Picture = styled.img`
   height: auto;
 `
 
-const CloseButton = styled.button`
+const CloseButton = styled.div`
   // font-size: 1em;
   // margin: 1em;
   // padding: 0.25em 1em;
