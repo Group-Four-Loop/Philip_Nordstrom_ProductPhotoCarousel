@@ -8,11 +8,11 @@ const ButtonMoveForward = styled.div`
   position: relative;
   // outline: 1px dashed red;
   cursor: pointer;
-`
+`;
 
 const Container = styled.div`
   padding-left: 20px;
-`
+`;
 
 var MoveCarouselForward = function(props){
   // console.log('PROPS IN MOVING FORWARD CAROSEL: ', props)

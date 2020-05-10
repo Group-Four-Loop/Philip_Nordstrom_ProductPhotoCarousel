@@ -6,8 +6,7 @@ import MoveCarouselForward from './MoveCarouselForward.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import axios from 'axios';
 import Modal from './Modal.js';
-import ModalColors from './ModalColors.js'
-// import { pointer } from '../shapes.js';
+import ModalColors from './ModalColors.js';
 
 const ProductGallery = styled.h1`
   font-size: 1.5em;
@@ -25,7 +24,7 @@ const CarouselContainer = styled.div`
   // outline: 1px dashed purple;
   height: 520px;
   width: 60px;
-`
+`;
 
 const MainPhoto = styled.h1`
   font-size: 1.5em;
@@ -33,7 +32,7 @@ const MainPhoto = styled.h1`
   color: palevioletred;
   outline: 2px solid blue;
   margin: 20px;
-  width: 100%
+  width: 100%;
 `;
 
 const AppContainer = styled.div`

@@ -5,7 +5,6 @@ import Carousel from './Carousel.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import MoveCarouselForward from './MoveCarouselForward.js';
 import ModalColors from './ModalColors.js';
-
 const modalRoot = document.getElementById('modal-root');
 
 const MainModalContainer = styled.div`
@@ -53,8 +52,6 @@ const CarouselContainerInModal = styled.div`
   width: 60px;
   position: fixed;
   top: 20px;
-
-
 `;
 
 const ProductGalleryInModal = styled.h1`
@@ -84,27 +81,13 @@ const MainPhotoContainer = styled.div`
 const Picture = styled.img`
   width: 100%;
   height: auto;
-`
-
-const CloseButton = styled.div`
-  // font-size: 1em;
-  // margin: 1em;
-  // padding: 0.25em 1em;
-  // border: 2px solid black;
-  // border-radius: 50%;
-  // background-color: white;
-  // height: 30px;
-  // width: 30px;
-  position: fixed;
-  top: 20px;
 `;
 
-const CloseShape = styled.div`
+const CloseModalButton = styled.div`
   position: fixed;
   top: 10px;
   right: 30px;
 `;
-
 
 class Modal extends React.Component {
   constructor(props){
@@ -118,24 +101,19 @@ class Modal extends React.Component {
       <MainModalContainer>
          <ModalStyle>
 
-          {/* <CloseButton>
-            <button onClick={this.props.onClose}>Close</button>
-          </CloseButton> */}
-
           {/* NEED TO CONVERT THE BELOW FROM IN-LINE CSS TO STYLED COMPONENTS */}
-          <CloseShape>
+          <CloseModalButton>
             <svg onClick={this.props.onClose} focusable="false" height="24" width="24" cursor="pointer">
               <g>
                 <circle cx="12" cy="12" r="11" fill="#393939"></circle>
                 <path d="M7 7l10 10m0-10L7 17" stroke="white" fill="none" strokeLinecap="round" strokeWidth="2"></path>
               </g>
             </svg>
-          </CloseShape>
+          </CloseModalButton>
 
           <MainPhotoContainer>
             <Picture src={this.props.mainPicture} onClick={this.props.onClose}></Picture>
           </MainPhotoContainer>
-
 
           <CarouselContainerInModal>
 

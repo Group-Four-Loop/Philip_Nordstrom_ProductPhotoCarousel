@@ -8,7 +8,7 @@ const PictureContainer = styled.div`
   display: block;
   position: relative;
   overflow-y: hidden;
-`
+`;
 
 var Carousel = React.forwardRef((props, ref) => (
 

@@ -15,10 +15,7 @@ const MainImage = styled.img`
   outline: 2px solid red;
   margin-left: 40px;
   margin-right: 40px;
-
-`
-
-//react portal
+`;
 
 var MainPicture = function(props){
   return(

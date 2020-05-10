@@ -1,7 +1,5 @@
 import React from 'react';
-import { chev } from '../shapes.js';
 import styled from 'styled-components';
-
 
 const ButtonMoveBackwards = styled.div`
   height: 20px;
@@ -10,12 +8,11 @@ const ButtonMoveBackwards = styled.div`
   position: relative;
   // outline: 1px dashed blue;
   cursor: pointer;
-
-`
+`;
 
 const Container = styled.div`
   padding-left: 20px;
-`
+`;
 
 var MoveCarouselBackwards = function(props){
   // console.log('PROPS IN MOVING backwards CAROSEL: ', props)

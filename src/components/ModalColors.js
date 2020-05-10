@@ -59,7 +59,7 @@ bottom: 0;
 // left: 60px;
 width: 100%;
 height: 89px;
-`
+`;
 
 const Text = styled.div`
   margin-left: 18px;
