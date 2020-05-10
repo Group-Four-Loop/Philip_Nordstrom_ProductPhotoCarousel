@@ -29,6 +29,50 @@ let Carousel = mongoose.model('Carousel', carouselSchema)
 
 module.exports = {
   save: function() {
+    let arrOfAllItems = [];
+    let shoesTotal = 100;
+    let pantsTotal = 500;
+    let shirtsTotal = 900;
+
+    let shoesItem = {
+      id: 0,
+      itemName: faker.commerce.productName(),
+      type: 'shoes',
+      colors: {
+        //color: black
+        color1: [
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/2e77313b-bd04-418c-b6db-eb9c13e190c5.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/50cd45f3-820c-4b69-932d-6636fd8b5aae.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/5d0115bd-6a7e-4af0-8045-11f404d4a470.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/857c4488-085c-4ffb-aa28-72b986d652da.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/a3e21723-d5a3-436e-ad24-d368a9d63d04.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/b9d0b091-c160-410a-ae54-da0d00aa01c8.jpg'
+        ],
+        //color: Black White Checker White
+        color2: [
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/312084d4-67ec-4b62-bb53-f45dcfccb125.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/5c36a82b-ba07-4078-a414-0adce83caa1e.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/5e1037f6-63a1-4624-a444-8ea061263f9f.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/8105baf2-7bb1-4147-a59e-1ea7b01d6fb5.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/857c4488-085c-4ffb-aa28-72b986d652da.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/d7e4c97a-c6ef-4dd8-b76e-08f7be6e8842.jpg'
+        ],
+        //color: true white
+        color3: [
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/0fd7792e-1444-4b18-8b71-cf51664795e2.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/301a5ddf-feeb-4f74-8c43-7c17c7d294fc.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/3e440b16-dc49-4b87-8fcd-8000e2bdf499.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/4539294d-3bd3-48e3-9f69-3477a59abfb0.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/68cfd514-cf29-4e1b-9dc1-bfc4e05e434c.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/6a8de12d-d0c9-4053-85b2-18552f93b8b5.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/889b0413-5b72-47f5-8ed5-4b273113aefa.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/9b05889d-a523-4d53-882d-74c243b59758.jpg',
+          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/c25ecb7b-af2b-4224-903d-5e2d96fb626a.jpg'
+        ]
+      },
+      colorNames: ['Black', 'Black White Checker White', 'True White']
+
+    }
 
     let pantsItem = {
       id: 0,
@@ -109,62 +153,48 @@ module.exports = {
 
     }
 
-    let shoesItem = {
-      id: 0,
-      itemName: faker.commerce.productName(),
-      type: 'shoes',
-      colors: {
-        //color: black
-        color1: [
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/2e77313b-bd04-418c-b6db-eb9c13e190c5.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/50cd45f3-820c-4b69-932d-6636fd8b5aae.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/5d0115bd-6a7e-4af0-8045-11f404d4a470.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/857c4488-085c-4ffb-aa28-72b986d652da.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/a3e21723-d5a3-436e-ad24-d368a9d63d04.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black/b9d0b091-c160-410a-ae54-da0d00aa01c8.jpg'
-        ],
-        //color: Black White Checker White
-        color2: [
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/312084d4-67ec-4b62-bb53-f45dcfccb125.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/5c36a82b-ba07-4078-a414-0adce83caa1e.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/5e1037f6-63a1-4624-a444-8ea061263f9f.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/8105baf2-7bb1-4147-a59e-1ea7b01d6fb5.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/857c4488-085c-4ffb-aa28-72b986d652da.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_Black_White_Checker_White/d7e4c97a-c6ef-4dd8-b76e-08f7be6e8842.jpg'
-        ],
-        //color: true white
-        color3: [
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/0fd7792e-1444-4b18-8b71-cf51664795e2.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/301a5ddf-feeb-4f74-8c43-7c17c7d294fc.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/3e440b16-dc49-4b87-8fcd-8000e2bdf499.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/4539294d-3bd3-48e3-9f69-3477a59abfb0.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/68cfd514-cf29-4e1b-9dc1-bfc4e05e434c.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/6a8de12d-d0c9-4053-85b2-18552f93b8b5.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/889b0413-5b72-47f5-8ed5-4b273113aefa.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/9b05889d-a523-4d53-882d-74c243b59758.jpg',
-          'https://nordstromcarouselpublic.s3-us-west-1.amazonaws.com/shoes/Color_True_White/c25ecb7b-af2b-4224-903d-5e2d96fb626a.jpg'
-        ]
-      },
-      colorNames: ['Black', 'Black White Checker White', 'True White']
-
+    let seedShoes = function(){
+      for (var i = 0; i < 33; i++) {
+        let item = new Carousel(shoesItem);
+        arrOfAllItems.push(item);
+      }
     }
 
-    let integerBetweenOneAndThree = function() {
-      return Math.floor(Math.random() * (3) + 1);
+    let seedPants = function(){
+      for (var i = 0; i < 33; i++) {
+        let item = new Carousel(pantsItem);
+        arrOfAllItems.push(item);
+      }
     }
 
-    let item;
-    var selectItem = integerBetweenOneAndThree()
-
-    if (selectItem === 1) {
-      item = new Carousel(pantsItem)
-    } else if (selectItem === 2) {
-      item = new Carousel(shirtItem)
-    } else if (selectItem === 3) {
-      item = new Carousel(shoesItem)
-    } else {
-      console.log('uh oh, cannot find a piece of clothing to display, see database/index.js')
+    let seedShirts = function(){
+      for (var i = 0; i < 33; i++) {
+        let item = new Carousel(shirtItem);
+        arrOfAllItems.push(item);
+      }
     }
+
+    //run the above functions to add data to array.
+    seedShoes();
+    seedPants();
+    seedShirts();
+
+    // let integerBetweenOneAndThree = function() {
+    //   return Math.floor(Math.random() * (3) + 1);
+    // }
+
+    // let item;
+    // var selectItem = integerBetweenOneAndThree()
+
+    // if (selectItem === 1) {
+    //   item = new Carousel(pantsItem)
+    // } else if (selectItem === 2) {
+    //   item = new Carousel(shirtItem)
+    // } else if (selectItem === 3) {
+    //   item = new Carousel(shoesItem)
+    // } else {
+    //   console.log('uh oh, cannot find a piece of clothing to display, see database/index.js')
+    // }
 
 
     item.save(function (err, item) {
@@ -175,8 +205,21 @@ module.exports = {
       }
     });
 
+    // Carousel.collection.insertMany(items())
+    // .then(() => {
+    //   console.log('we are seeded!')
+    // })
+    // .catch(err => {
+    //   console.log('not reseeded!')
+    // });
+
+    //COME BACK TO THIS TO FINISH INSERT MANY!!!
+    carousels.insertMany(arr, function(error, docs) {});
+
 
   },
+
+
 
   getAll: function(callback){
     Carousel.find({}, function (err, docs) {
