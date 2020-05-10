@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Carousel from './Carousel.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import MoveCarouselForward from './MoveCarouselForward.js';
+import ModalColors from './ModalColors.js';
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -71,7 +72,12 @@ const ProductGalleryInModal = styled.h1`
 const MainPhotoContainer = styled.div`
   border: 1px solid purple;
   overflow: hidden; /* if you don't want #second to wrap below #first */
-  float: right;
+  // float: right;
+  // height: auto;
+  // width: 90%;
+  // height: 300px;
+  // width: auto;
+  // display: flex;
 `;
 
 class Modal extends React.Component {
@@ -87,7 +93,7 @@ class Modal extends React.Component {
          <ModalStyle>
 
           <button onClick={this.props.onClose}>Close</button>
-
+{/*
           <svg focusable="false" height="24" width="24">
 
             <ClosingModal>
@@ -98,10 +104,10 @@ class Modal extends React.Component {
               <path d="M7 7l10 10m0-10L7 17"></path>
             </CloseModal>
 
-          </svg>
+          </svg> */}
 
           <MainPhotoContainer>
-            <img src={this.props.mainPicture} height="auto" width="1280px" onClick={this.props.onClose}></img>
+            <img src={this.props.mainPicture} onClick={this.props.onClose}></img>
           </MainPhotoContainer>
 
 
@@ -122,6 +128,14 @@ class Modal extends React.Component {
             /> */}
 
           </CarouselContainerInModal>
+
+          <ModalColors
+            availableColors={this.props.availableColors}
+            colorNames={this.props.colorNames}
+            changeColorToItemOne={this.props.changeColorToItemOne}
+            changeColorToItemTwo={this.props.changeColorToItemTwo}
+            changeColorToItemThree={this.props.changeColorToItemThree}
+          />
 
           {/* {this.props.children} //Not sure what this code is supposed to do... */}
 

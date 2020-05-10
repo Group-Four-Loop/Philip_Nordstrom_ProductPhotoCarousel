@@ -1,11 +1,4 @@
-// var save = { save };
 const { save } = require('./index.js');
 
-//seeds database with 100 identical records.
-// for (var i = 0; i < 100; i++) {
-//   save();
-// }
+//SEEDS DB WITH 99 RECORDS OF SHIRTS, SHOES, AND PANTS.
 save()
-
-
-//minor change.
