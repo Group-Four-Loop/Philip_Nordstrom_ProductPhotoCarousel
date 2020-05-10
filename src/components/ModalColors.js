@@ -2,37 +2,60 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ButtonOne = styled.button`
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid black;
-  border-radius: 50%;
-  background-color: red;
-  height: 35px;
-  width: 35px;
+font-size: 1em;
+margin: 1em;
+padding: 0.25em 1em;
+border: 2px solid white;
+border-radius: 50%;
+background-color: #EF745A;
+height: 35px;
+width: 35px;
+outline: none;
+box-shadow:  0 0 0 0.5px grey;
+&:hover {
+  box-shadow: 0 0 0 2px grey;
+}
 `;
 
 const ButtonTwo = styled.button`
   font-size: 1em;
+  font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 50%;
-  background-color: white;
+  background-color: #80F96A;
   height: 35px;
   width: 35px;
+  outline: none;
+  box-shadow:  0 0 0 0.5px grey;
+  &:hover {
+    box-shadow: 0 0 0 2px grey;
+  }
 `;
 
+//YOU ARE WORKING ON THIS BUTTON
 const ButtonThree = styled.button`
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 50%;
-  background-color: blue;
+  background-color: #858FF2;
   height: 35px;
   width: 35px;
+  outline: none;
+  box-shadow:  0 0 0 0.5px grey;
+  &:hover {
+    box-shadow: 0 0 0 2px grey;
+  }
 `;
+
+
+
+
+
+
 
 const ButtonBox = styled.div`
 // border: 3px solid #73AD21;
