@@ -5,7 +5,8 @@ import MainPicture from './MainPicture.js';
 import MoveCarouselForward from './MoveCarouselForward.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import axios from 'axios';
-import Modal from './Modal.js'
+import Modal from './Modal.js';
+import ModalColors from './ModalColors.js'
 // import { pointer } from '../shapes.js';
 
 const ProductGallery = styled.h1`
@@ -55,7 +56,11 @@ class App extends React.Component {
       carouselLength: 0,
       moveForwardVisible: true,
       moveBackwardsVisible: false,
-      showModal: false
+      showModal: false,
+      availableColors: [],
+      colorNames: [],
+      currentColorName: ''
+
     };
     this.updateMainPhoto = this.updateMainPhoto.bind(this);
     this.openMainPhotoModul = this.openMainPhotoModul.bind(this);
@@ -64,6 +69,10 @@ class App extends React.Component {
     this.getInfo = this.getInfo.bind(this);
     this.handleShowMessageClick = this.handleShowMessageClick.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.changeColorToItemOne = this.changeColorToItemOne.bind(this);
+    this.changeColorToItemTwo = this.changeColorToItemTwo.bind(this);
+    this.changeColorToItemThree = this.changeColorToItemThree.bind(this);
+
   }
 
   updateMainPhoto(event){
@@ -72,6 +81,8 @@ class App extends React.Component {
     })
     // console.log(event.target.src)
   }
+
+
 
   openMainPhotoModul(event){
     // console.log(event.target)
@@ -84,6 +95,38 @@ class App extends React.Component {
   handleCloseModal(){
     this.setState({ showModal: false });
   }
+
+
+  changeColorToItemOne(){
+    this.setState({
+      pictures: this.state.availableColors.color1,
+      mainPicture: this.state.availableColors.color1[0],
+      carouselLength: this.state.availableColors.color1.length * 100,
+      currentColorName: this.state.colorNames[0]
+    })
+    console.log('changing color to color 1!')
+  }
+
+  changeColorToItemTwo(){
+    this.setState({
+      pictures: this.state.availableColors.color2,
+      mainPicture: this.state.availableColors.color2[0],
+      carouselLength: this.state.availableColors.color2.length * 100,
+      currentColorName: this.state.colorNames[1]
+    })
+    console.log('changing color to color 2!')
+  }
+
+  changeColorToItemThree(){
+    this.setState({
+      pictures: this.state.availableColors.color3,
+      mainPicture: this.state.availableColors.color3[0],
+      carouselLength: this.state.availableColors.color3.length * 100,
+      currentColorName: this.state.colorNames[2]
+    })
+    console.log('changing color to color 3!')
+  }
+
 
 
   moveForward(){
@@ -151,7 +194,10 @@ class App extends React.Component {
       this.setState({
         pictures: response.data[indexOfItem].colors.color1,
         mainPicture: response.data[indexOfItem].colors.color1[0],
-        carouselLength: response.data[indexOfItem].colors.color1.length * 100
+        carouselLength: response.data[indexOfItem].colors.color1.length * 100,
+        availableColors: response.data[indexOfItem].colors,
+        colorNames: response.data[indexOfItem].colorNames,
+        currentColorName: response.data[indexOfItem].colorNames[0]
       })
       console.log(response.data[indexOfItem], 'INDEX: ', indexOfItem);
     })
@@ -180,7 +226,7 @@ class App extends React.Component {
             <MoveCarouselBackwards moveBackwards={this.moveBackwards} moveBackwardsVisible={this.state.moveBackwardsVisible}/>
 
             <ProductGallery>
-              <Carousel pictures={this.state.pictures} mainPicture={this.state.mainPicture} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef}/>
+              <Carousel pictures={this.state.pictures} mainPicture={this.state.mainPicture} updateMainPhoto={this.updateMainPhoto} ref={this.carouselRef} />
             </ProductGallery>
 
             <MoveCarouselForward moveForward={this.moveForward} moveForwardVisible={this.state.moveForwardVisible}/>
@@ -204,6 +250,12 @@ class App extends React.Component {
                 pictures={this.state.pictures}
                 updateMainPhoto={this.updateMainPhoto}
                 ref={this.carouselRef}
+                availableColors={this.state.availableColors}
+                colorNames={this.state.colorNames}
+                changeColorToItemOne={this.changeColorToItemOne}
+                changeColorToItemTwo={this.changeColorToItemTwo}
+                changeColorToItemThree={this.changeColorToItemThree}
+                currentColorName={this.state.currentColorName}
                 // moveForward={this.moveForward}
                 // moveForwardVisible={this.state.moveForwardVisible}
                 // moveBackwards={this.moveBackwards}
