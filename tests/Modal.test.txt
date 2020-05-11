@@ -40,6 +40,6 @@ describe('Modal component', () => {
     // expect(component.find(ModalWrap).exists()).toBeTruthy();
     // expect(component.find(ModalWrap).contains(ModalDialog)).toBeTruthy();
     // expect(component.find(ModalDialog).contains(ModalContent)).toBeTruthy();
-    // expect(component.find(ModalContent).contains(Child)).toBeTruthy();
+    // expect(component.find(ModalContent).contains(Child)).toBeTruthy();dd
   });
 })
