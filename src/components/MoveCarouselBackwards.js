@@ -10,6 +10,13 @@ const ButtonMoveBackwards = styled.div`
   cursor: pointer;
 `;
 
+const UpArrowPlaceHolder = styled.div`
+height: 20px;
+width: 60px;
+display: block;
+position: relative;
+`;
+
 const Container = styled.div`
   padding-left: 20px;
 `;
@@ -30,7 +37,9 @@ var MoveCarouselBackwards = function(props){
       </ButtonMoveBackwards>
     )
   } else {
-    return null;
+    return(
+      <UpArrowPlaceHolder></UpArrowPlaceHolder>
+    );
   }
 }
 

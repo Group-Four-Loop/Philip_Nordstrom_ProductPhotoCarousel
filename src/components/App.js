@@ -8,10 +8,7 @@ import axios from 'axios';
 import Modal from './Modal.js';
 import ModalColors from './ModalColors.js';
 
-const ProductGallery = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+const ProductGallery = styled.div`
   // outline: 1px dashed green;
   height: 510px;
   width: 60px;
@@ -26,17 +23,13 @@ const CarouselContainer = styled.div`
   width: 60px;
 `;
 
-const MainPhoto = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-  outline: 2px solid blue;
+const MainPhoto = styled.div`
+  // outline: 2px solid blue;
   margin: 20px;
   width: 100%;
 `;
 
 const AppContainer = styled.div`
-  color: palevioletred;
   outline: 2px solid black;
   display: flex;
 `;
@@ -58,7 +51,8 @@ class App extends React.Component {
       showModal: false,
       availableColors: [],
       colorNames: [],
-      currentColorName: ''
+      currentColorName: '',
+      node: ''
 
     };
     this.updateMainPhoto = this.updateMainPhoto.bind(this);
@@ -156,12 +150,11 @@ class App extends React.Component {
       moveForwardVisible: false,//isForwardButtonVisibile,
       moveBackwardsVisible: true//isBackwardsButtonVisible
     })
-    this.carouselRef.current.scroll({
+    this.state.node.scroll({
       left: 0,
       top: newYCoord,
       behavior: 'smooth'
     })
-    // console.log('MOVE CAROUSEL FORWARD -> REF: ', newYCoord)
   }
 
   moveBackwards(){
@@ -171,13 +164,13 @@ class App extends React.Component {
       moveForwardVisible: true,
       moveBackwardsVisible: false
     })
-    this.carouselRef.current.scroll({
+    // this.carouselRef
+    this.state.node.scroll({
       left: 0,
       top: newYCoord,
       behavior: 'smooth',
       // transition-duration: '5s'
     })
-    console.log(this.carouselRef.current)
   }
 
   getInfo(){
@@ -196,7 +189,10 @@ class App extends React.Component {
         carouselLength: response.data[indexOfItem].colors.color1.length * 100,
         availableColors: response.data[indexOfItem].colors,
         colorNames: response.data[indexOfItem].colorNames,
-        currentColorName: response.data[indexOfItem].colorNames[0]
+        currentColorName: response.data[indexOfItem].colorNames[0],
+        node: this.carouselRef.current
+
+
       })
       console.log(response.data[indexOfItem], 'INDEX: ', indexOfItem);
     })
@@ -216,7 +212,7 @@ class App extends React.Component {
   }
 
   render() {
-
+    console.log(this.state)
     return(
       <div>
         <h1>Nordstrom Photo Gallery</h1>

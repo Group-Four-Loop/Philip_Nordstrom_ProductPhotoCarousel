@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import magnifyingGlass from '../shapes.js';
 
 const Container = styled.div`
-  outline: 2px solid red;
+  // outline: 2px solid red;
 `
 
 const MainImage = styled.img`
@@ -12,7 +12,7 @@ const MainImage = styled.img`
   display: block;
   position: relative;
   cursor: url(${magnifyingGlass}) 20 20,pointer!important;
-  outline: 2px solid red;
+  // outline: 2px solid red;
   margin-left: 40px;
   margin-right: 40px;
 `;

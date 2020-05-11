@@ -54,10 +54,7 @@ const CarouselContainerInModal = styled.div`
   top: 20px;
 `;
 
-const ProductGalleryInModal = styled.h1`
-  // font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+const ProductGalleryInModal = styled.div`
   // outline: 1px dashed green;
   height: 910px;  //COME BACK TO THIS
   width: 60px;
