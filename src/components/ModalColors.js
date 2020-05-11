@@ -77,17 +77,7 @@ const Text = styled.div`
   color: #393939;
 `;
 
-//Color:3 {props.colorNames[2]}
-
 var ModalColors = function(props){
-
-
-
-  console.log(
-    'buttonOneSelected:', props.buttonOneSelected,
-    'buttontwoSelected:', props.buttonTwoSelected,
-    'buttonthreeSelected:', props.buttonThreeSelected
-  )
 
   return(
 

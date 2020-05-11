@@ -4,7 +4,7 @@ import magnifyingGlass from '../shapes.js';
 
 const Container = styled.div`
   // outline: 2px solid red;
-`
+`;
 
 const MainImage = styled.img`
   width: 40%;

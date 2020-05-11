@@ -76,23 +76,22 @@ class App extends React.Component {
     this.setState({
       mainPicture: event.target.src
     })
-    // console.log(event.target.src)
   }
 
 
 
   openMainPhotoModul(event){
     // console.log(event.target)
+    //this method does nothing!
   }
 
   handleShowMessageClick(){
     this.setState({ showModal: true });
-    // console.log('Should be displaying modal.')
   }
+
   handleCloseModal(){
     this.setState({ showModal: false });
   }
-
 
   changeColorToItemOne(){
     this.setState({
@@ -105,7 +104,6 @@ class App extends React.Component {
       buttonTwoSelected: false,
       buttonThreeSelected: false
     })
-    // console.log('changing color to color 1!')
   }
 
   changeColorToItemTwo(){
@@ -119,7 +117,6 @@ class App extends React.Component {
       buttonTwoSelected: true,
       buttonThreeSelected: false
     })
-    // console.log('changing color to color 2!')
   }
 
   changeColorToItemThree(){
@@ -133,7 +130,6 @@ class App extends React.Component {
       buttonTwoSelected: false,
       buttonThreeSelected: true
     })
-    // console.log('changing color to color 3!')
   }
 
 
@@ -212,7 +208,6 @@ class App extends React.Component {
         buttonTwoSelected: false,
         buttonThreeSelected: false,
 
-
       })
       console.log(response.data[indexOfItem], 'INDEX: ', indexOfItem);
     })
@@ -232,7 +227,6 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(this.state)
     return(
       <div>
         <h1>Nordstrom Photo Gallery</h1>
