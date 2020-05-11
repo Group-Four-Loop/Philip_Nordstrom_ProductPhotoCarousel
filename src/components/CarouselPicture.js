@@ -26,7 +26,7 @@ const UnderLine = styled.div`
 `;
 
 var CarouselPicture = function(props){
-
+  console.log('CAROUSEL PICTURE: ', props.matchesMainPicture)
   return(
     <Wrapper>
       <Image src={props.picture} alt="funky fresh shirt" onClick={props.updateMainPhoto} />

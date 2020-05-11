@@ -2,20 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ButtonOne = styled.button`
-font-size: 1em;
-margin: 1em;
-padding: 0.25em 1em;
-border: 2px solid white;
-border-radius: 50%;
-background-color: #EF745A;
-height: 35px;
-width: 35px;
-outline: none;
-cursor: pointer;
-box-shadow:  0 0 0 0.5px grey;
-&:hover {
-  box-shadow: 0 0 0 2px grey;
-}
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: #EF745A;
+  height: 35px;
+  width: 35px;
+  outline: none;
+  cursor: pointer;
+  // box-shadow:  0 0 0 0.5px grey;
+  box-shadow: ${props => props.selected ? "0 0 0 2px black" : "0 0 0 0.5px grey"};
+  &:hover {
+    box-shadow: 0 0 0 2px grey;
+  }
 `;
 
 const ButtonTwo = styled.button`
@@ -30,10 +31,11 @@ const ButtonTwo = styled.button`
   width: 35px;
   outline: none;
   cursor: pointer;
-  box-shadow:  0 0 0 0.5px grey;
+  // box-shadow:  0 0 0 0.5px grey;
+  box-shadow: ${props => props.selected ? "0 0 0 2px black" : "0 0 0 0.5px grey"};
   &:hover {
-    box-shadow: 0 0 0 2px grey;
-  }
+  box-shadow: 0 0 0 2px grey;
+}
 `;
 
 //YOU ARE WORKING ON THIS BUTTON
@@ -48,10 +50,12 @@ const ButtonThree = styled.button`
   width: 35px;
   outline: none;
   cursor: pointer;
-  box-shadow:  0 0 0 0.5px grey;
+  // box-shadow:  0 0 0 0.5px grey;
+  box-shadow: ${props => props.selected ? "0 0 0 2px black" : "0 0 0 0.5px grey"};
+
   &:hover {
-    box-shadow: 0 0 0 2px grey;
-  }
+  box-shadow: 0 0 0 2px grey;
+}
 `;
 
 const ButtonBox = styled.div`
@@ -76,14 +80,22 @@ const Text = styled.div`
 //Color:3 {props.colorNames[2]}
 
 var ModalColors = function(props){
-  console.log(props)
+
+
+
+  console.log(
+    'buttonOneSelected:', props.buttonOneSelected,
+    'buttontwoSelected:', props.buttonTwoSelected,
+    'buttonthreeSelected:', props.buttonThreeSelected
+  )
+
   return(
 
     <ButtonBox>
       <Text>Color: {props.currentColorName}</Text>
-      <ButtonOne onClick={props.changeColorToItemOne}></ButtonOne>
-      <ButtonTwo onClick={props.changeColorToItemTwo}></ButtonTwo>
-      <ButtonThree onClick={props.changeColorToItemThree}></ButtonThree>
+      <ButtonOne selected={props.buttonOneSelected} onClick={props.changeColorToItemOne}></ButtonOne>
+      <ButtonTwo selected={props.buttonTwoSelected} onClick={props.changeColorToItemTwo}></ButtonTwo>
+      <ButtonThree selected={props.buttonThreeSelected} onClick={props.changeColorToItemThree}></ButtonThree>
     </ButtonBox>
 
   )

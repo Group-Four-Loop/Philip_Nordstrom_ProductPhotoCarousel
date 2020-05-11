@@ -52,9 +52,13 @@ class App extends React.Component {
       availableColors: [],
       colorNames: [],
       currentColorName: '',
+      currentColorIndexSelected: '',
+      buttonOneSelected: true,
+      buttonTwoSelected: false,
+      buttonThreeSelected: false,
       node: ''
-
     };
+
     this.updateMainPhoto = this.updateMainPhoto.bind(this);
     this.openMainPhotoModul = this.openMainPhotoModul.bind(this);
     this.moveForward = this.moveForward.bind(this);
@@ -95,9 +99,13 @@ class App extends React.Component {
       pictures: this.state.availableColors.color1,
       mainPicture: this.state.availableColors.color1[0],
       carouselLength: this.state.availableColors.color1.length * 100,
-      currentColorName: this.state.colorNames[0]
+      currentColorName: this.state.colorNames[0],
+      currentColorIndexSelected: 0,
+      buttonOneSelected: true,
+      buttonTwoSelected: false,
+      buttonThreeSelected: false
     })
-    console.log('changing color to color 1!')
+    // console.log('changing color to color 1!')
   }
 
   changeColorToItemTwo(){
@@ -105,9 +113,13 @@ class App extends React.Component {
       pictures: this.state.availableColors.color2,
       mainPicture: this.state.availableColors.color2[0],
       carouselLength: this.state.availableColors.color2.length * 100,
-      currentColorName: this.state.colorNames[1]
+      currentColorName: this.state.colorNames[1],
+      currentColorIndexSelected: 1,
+      buttonOneSelected: false,
+      buttonTwoSelected: true,
+      buttonThreeSelected: false
     })
-    console.log('changing color to color 2!')
+    // console.log('changing color to color 2!')
   }
 
   changeColorToItemThree(){
@@ -115,9 +127,13 @@ class App extends React.Component {
       pictures: this.state.availableColors.color3,
       mainPicture: this.state.availableColors.color3[0],
       carouselLength: this.state.availableColors.color3.length * 100,
-      currentColorName: this.state.colorNames[2]
+      currentColorName: this.state.colorNames[2],
+      currentColorIndexSelected: 2,
+      buttonOneSelected: false,
+      buttonTwoSelected: false,
+      buttonThreeSelected: true
     })
-    console.log('changing color to color 3!')
+    // console.log('changing color to color 3!')
   }
 
 
@@ -190,7 +206,11 @@ class App extends React.Component {
         availableColors: response.data[indexOfItem].colors,
         colorNames: response.data[indexOfItem].colorNames,
         currentColorName: response.data[indexOfItem].colorNames[0],
-        node: this.carouselRef.current
+        node: this.carouselRef.current,
+        currentColorIndexSelected: 0,
+        buttonOneSelected: true,
+        buttonTwoSelected: false,
+        buttonThreeSelected: false,
 
 
       })
@@ -212,7 +232,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return(
       <div>
         <h1>Nordstrom Photo Gallery</h1>
@@ -251,6 +271,10 @@ class App extends React.Component {
                 changeColorToItemTwo={this.changeColorToItemTwo}
                 changeColorToItemThree={this.changeColorToItemThree}
                 currentColorName={this.state.currentColorName}
+                currentColorIndexSelected={this.state.currentColorIndexSelected}
+                buttonOneSelected={this.state.buttonOneSelected}
+                buttonTwoSelected={this.state.buttonTwoSelected}
+                buttonThreeSelected={this.state.buttonThreeSelected}
                 // moveForward={this.moveForward}
                 // moveForwardVisible={this.state.moveForwardVisible}
                 // moveBackwards={this.moveBackwards}
