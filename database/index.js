@@ -15,14 +15,11 @@ let carouselSchema = new mongoose.Schema({
   itemName: String,
   type: String,
   colors: {
-    //note: the first item of each array will be the round color swatch.
-    //need to change color1, etc. to reflect the name of each color/material.
     color1:[String, String, String, String, String, String, String, String],
     color2:[String, String, String, String, String, String, String, String],
     color3:[String, String, String, String, String, String, String, String]
   },
   colorNames: [String, String, String]
-  // anothertype: String
 });
 
 let Carousel = mongoose.model('Carousel', carouselSchema)

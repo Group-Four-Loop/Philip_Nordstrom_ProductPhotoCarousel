@@ -6,13 +6,9 @@ import MoveCarouselForward from './MoveCarouselForward.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import axios from 'axios';
 import Modal from './Modal.js';
-import ModalColors from './ModalColors.js'
-// import { pointer } from '../shapes.js';
+import ModalColors from './ModalColors.js';
 
-const ProductGallery = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+const ProductGallery = styled.div`
   // outline: 1px dashed green;
   height: 510px;
   width: 60px;
@@ -25,19 +21,15 @@ const CarouselContainer = styled.div`
   // outline: 1px dashed purple;
   height: 520px;
   width: 60px;
-`
+`;
 
-const MainPhoto = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-  outline: 2px solid blue;
+const MainPhoto = styled.div`
+  // outline: 2px solid blue;
   margin: 20px;
-  width: 100%
+  width: 100%;
 `;
 
 const AppContainer = styled.div`
-  color: palevioletred;
   outline: 2px solid black;
   display: flex;
 `;
@@ -59,9 +51,14 @@ class App extends React.Component {
       showModal: false,
       availableColors: [],
       colorNames: [],
-      currentColorName: ''
-
+      currentColorName: '',
+      currentColorIndexSelected: '',
+      buttonOneSelected: true,
+      buttonTwoSelected: false,
+      buttonThreeSelected: false,
+      node: ''
     };
+
     this.updateMainPhoto = this.updateMainPhoto.bind(this);
     this.openMainPhotoModul = this.openMainPhotoModul.bind(this);
     this.moveForward = this.moveForward.bind(this);
@@ -79,32 +76,34 @@ class App extends React.Component {
     this.setState({
       mainPicture: event.target.src
     })
-    // console.log(event.target.src)
   }
 
 
 
   openMainPhotoModul(event){
     // console.log(event.target)
+    //this method does nothing!
   }
 
   handleShowMessageClick(){
     this.setState({ showModal: true });
-    // console.log('Should be displaying modal.')
   }
+
   handleCloseModal(){
     this.setState({ showModal: false });
   }
-
 
   changeColorToItemOne(){
     this.setState({
       pictures: this.state.availableColors.color1,
       mainPicture: this.state.availableColors.color1[0],
       carouselLength: this.state.availableColors.color1.length * 100,
-      currentColorName: this.state.colorNames[0]
+      currentColorName: this.state.colorNames[0],
+      currentColorIndexSelected: 0,
+      buttonOneSelected: true,
+      buttonTwoSelected: false,
+      buttonThreeSelected: false
     })
-    console.log('changing color to color 1!')
   }
 
   changeColorToItemTwo(){
@@ -112,9 +111,12 @@ class App extends React.Component {
       pictures: this.state.availableColors.color2,
       mainPicture: this.state.availableColors.color2[0],
       carouselLength: this.state.availableColors.color2.length * 100,
-      currentColorName: this.state.colorNames[1]
+      currentColorName: this.state.colorNames[1],
+      currentColorIndexSelected: 1,
+      buttonOneSelected: false,
+      buttonTwoSelected: true,
+      buttonThreeSelected: false
     })
-    console.log('changing color to color 2!')
   }
 
   changeColorToItemThree(){
@@ -122,9 +124,12 @@ class App extends React.Component {
       pictures: this.state.availableColors.color3,
       mainPicture: this.state.availableColors.color3[0],
       carouselLength: this.state.availableColors.color3.length * 100,
-      currentColorName: this.state.colorNames[2]
+      currentColorName: this.state.colorNames[2],
+      currentColorIndexSelected: 2,
+      buttonOneSelected: false,
+      buttonTwoSelected: false,
+      buttonThreeSelected: true
     })
-    console.log('changing color to color 3!')
   }
 
 
@@ -157,12 +162,11 @@ class App extends React.Component {
       moveForwardVisible: false,//isForwardButtonVisibile,
       moveBackwardsVisible: true//isBackwardsButtonVisible
     })
-    this.carouselRef.current.scroll({
+    this.state.node.scroll({
       left: 0,
       top: newYCoord,
       behavior: 'smooth'
     })
-    // console.log('MOVE CAROUSEL FORWARD -> REF: ', newYCoord)
   }
 
   moveBackwards(){
@@ -172,13 +176,13 @@ class App extends React.Component {
       moveForwardVisible: true,
       moveBackwardsVisible: false
     })
-    this.carouselRef.current.scroll({
+    // this.carouselRef
+    this.state.node.scroll({
       left: 0,
       top: newYCoord,
       behavior: 'smooth',
       // transition-duration: '5s'
     })
-    // console.log('MOVE CAROUSEL BACKWARDS -> REF: ', newYCoord)
   }
 
   getInfo(){
@@ -197,7 +201,13 @@ class App extends React.Component {
         carouselLength: response.data[indexOfItem].colors.color1.length * 100,
         availableColors: response.data[indexOfItem].colors,
         colorNames: response.data[indexOfItem].colorNames,
-        currentColorName: response.data[indexOfItem].colorNames[0]
+        currentColorName: response.data[indexOfItem].colorNames[0],
+        node: this.carouselRef.current,
+        currentColorIndexSelected: 0,
+        buttonOneSelected: true,
+        buttonTwoSelected: false,
+        buttonThreeSelected: false,
+
       })
       console.log(response.data[indexOfItem], 'INDEX: ', indexOfItem);
     })
@@ -217,7 +227,6 @@ class App extends React.Component {
   }
 
   render() {
-
     return(
       <div>
         <h1>Nordstrom Photo Gallery</h1>
@@ -256,6 +265,10 @@ class App extends React.Component {
                 changeColorToItemTwo={this.changeColorToItemTwo}
                 changeColorToItemThree={this.changeColorToItemThree}
                 currentColorName={this.state.currentColorName}
+                currentColorIndexSelected={this.state.currentColorIndexSelected}
+                buttonOneSelected={this.state.buttonOneSelected}
+                buttonTwoSelected={this.state.buttonTwoSelected}
+                buttonThreeSelected={this.state.buttonThreeSelected}
                 // moveForward={this.moveForward}
                 // moveForwardVisible={this.state.moveForwardVisible}
                 // moveBackwards={this.moveBackwards}

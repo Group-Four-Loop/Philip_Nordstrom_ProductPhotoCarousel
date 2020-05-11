@@ -5,7 +5,6 @@ import Carousel from './Carousel.js';
 import MoveCarouselBackwards from './MoveCarouselBackwards.js';
 import MoveCarouselForward from './MoveCarouselForward.js';
 import ModalColors from './ModalColors.js';
-
 const modalRoot = document.getElementById('modal-root');
 
 const MainModalContainer = styled.div`
@@ -53,15 +52,10 @@ const CarouselContainerInModal = styled.div`
   width: 60px;
   position: fixed;
   top: 20px;
-
-
 `;
 
-const ProductGalleryInModal = styled.h1`
-  // font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-  outline: 1px dashed green;
+const ProductGalleryInModal = styled.div`
+  // outline: 1px dashed green;
   height: 910px;  //COME BACK TO THIS
   width: 60px;
   position: relative;
@@ -76,6 +70,7 @@ const MainPhotoContainer = styled.div`
   float: right;
   height: auto;
   width: 95%;
+  cursor: zoom-out;
   // height: 300px;
   // width: auto;
   // display: flex;
@@ -84,21 +79,15 @@ const MainPhotoContainer = styled.div`
 const Picture = styled.img`
   width: 100%;
   height: auto;
-`
-
-const CloseButton = styled.div`
-  // font-size: 1em;
-  // margin: 1em;
-  // padding: 0.25em 1em;
-  // border: 2px solid black;
-  // border-radius: 50%;
-  // background-color: white;
-  // height: 30px;
-  // width: 30px;
-  position: fixed;
-  top: 0;
 `;
 
+const CloseModalButton = styled.div`
+  position: fixed;
+  top: 10px;
+  right: 30px;
+  cursor: pointer;
+
+`;
 
 class Modal extends React.Component {
   constructor(props){
@@ -112,28 +101,19 @@ class Modal extends React.Component {
       <MainModalContainer>
          <ModalStyle>
 
-          <CloseButton>
-            <button onClick={this.props.onClose}>Close</button>
-          </CloseButton>
-
-
-{/*
-          <svg focusable="false" height="24" width="24">
-
-            <ClosingModal>
-              <circle cx="12" cy="12" r="11"></circle>
-            </ClosingModal>
-
-            <CloseModal>
-              <path d="M7 7l10 10m0-10L7 17"></path>
-            </CloseModal>
-
-          </svg> */}
+          {/* NEED TO CONVERT THE BELOW FROM IN-LINE CSS TO STYLED COMPONENTS */}
+          <CloseModalButton>
+            <svg onClick={this.props.onClose} focusable="false" height="24" width="24" cursor="pointer">
+              <g>
+                <circle cx="12" cy="12" r="11" fill="#393939"></circle>
+                <path d="M7 7l10 10m0-10L7 17" stroke="white" fill="none" strokeLinecap="round" strokeWidth="2"></path>
+              </g>
+            </svg>
+          </CloseModalButton>
 
           <MainPhotoContainer>
             <Picture src={this.props.mainPicture} onClick={this.props.onClose}></Picture>
           </MainPhotoContainer>
-
 
           <CarouselContainerInModal>
 
@@ -160,6 +140,10 @@ class Modal extends React.Component {
             changeColorToItemTwo={this.props.changeColorToItemTwo}
             changeColorToItemThree={this.props.changeColorToItemThree}
             currentColorName={this.props.currentColorName}
+            currentColorIndexSelected={this.props.currentColorIndexSelected}
+            buttonOneSelected={this.props.buttonOneSelected}
+            buttonTwoSelected={this.props.buttonTwoSelected}
+            buttonThreeSelected={this.props.buttonThreeSelected}
           />
 
           {/* {this.props.children} //Not sure what this code is supposed to do... */}
