@@ -70,6 +70,7 @@ const MainPhotoContainer = styled.div`
   float: right;
   height: auto;
   width: 95%;
+  cursor: zoom-out;
   // height: 300px;
   // width: auto;
   // display: flex;
@@ -84,6 +85,8 @@ const CloseModalButton = styled.div`
   position: fixed;
   top: 10px;
   right: 30px;
+  cursor: pointer;
+
 `;
 
 class Modal extends React.Component {

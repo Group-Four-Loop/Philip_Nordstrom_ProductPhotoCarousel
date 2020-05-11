@@ -11,6 +11,7 @@ background-color: #EF745A;
 height: 35px;
 width: 35px;
 outline: none;
+cursor: pointer;
 box-shadow:  0 0 0 0.5px grey;
 &:hover {
   box-shadow: 0 0 0 2px grey;
@@ -28,6 +29,7 @@ const ButtonTwo = styled.button`
   height: 35px;
   width: 35px;
   outline: none;
+  cursor: pointer;
   box-shadow:  0 0 0 0.5px grey;
   &:hover {
     box-shadow: 0 0 0 2px grey;
@@ -45,6 +47,7 @@ const ButtonThree = styled.button`
   height: 35px;
   width: 35px;
   outline: none;
+  cursor: pointer;
   box-shadow:  0 0 0 0.5px grey;
   &:hover {
     box-shadow: 0 0 0 2px grey;
