@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "test": "jest --collect-coverage",
-    "start": "nodemon server/app.js",
-    "webpack": "webpack -d --watch",
-    "seed": "node database/seedDB.js"
+    "start": "node server/app.js",
+    "webpack": "webpack -d",
+    "seed": "node database/seedDB.js",
+    "webpackProd": "webpack -p"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "babel-jest": "^25.5.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "lodash": "^4.17.15",
