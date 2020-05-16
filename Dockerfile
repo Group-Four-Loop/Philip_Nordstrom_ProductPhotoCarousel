@@ -1,9 +1,10 @@
-
 FROM node:latest
 
 RUN mkdir -p /src/app
 
 WORKDIR /src/app
+
+ENV PATH /src/app/node_modules/.bin:$PATH
 
 COPY . /src/app
 
@@ -19,4 +20,4 @@ EXPOSE 1234
 # asyncronouse statemenet, also weirdness w layering
 
 
-CMD [ "npm", "start" ]
+# CMD [ "npm", "start" ]
