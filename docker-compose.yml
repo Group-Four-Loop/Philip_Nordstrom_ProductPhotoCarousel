@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  pictures:
+    container_name:
+      photocarouselrob
+    build: ./
+    depends_on:
+      - 'photos_db'
+    ports:
+      - '1235:1234'
+    working_dir: /src/app
+    volumes:
+      - ./:/src/app
+
+  photos_db:
+    image: 'mongo:latest'
+    container_name:
+      photos_db
+    restart: 'always'

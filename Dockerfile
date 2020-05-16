@@ -10,8 +10,12 @@ RUN npm install
 
 # RUN npm global add nodemon
 
-EXPOSE 1111
+EXPOSE 1234
 
-RUN npm run webpack
+# RUN npm run webpack
+
+# yum mongo
+# asyncronouse statemenet, also weirdness w layering
+
 
 CMD [ "npm", "start" ]

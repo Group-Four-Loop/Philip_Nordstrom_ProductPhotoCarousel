@@ -1,7 +1,8 @@
 var faker = require('faker');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/nordstrom', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://photos_db/nordstrom', {useNewUrlParser: true, useUnifiedTopology: true});
 
+// 127.0.0.1:27017
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {

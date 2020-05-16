@@ -192,7 +192,7 @@ class App extends React.Component {
     }
     integerBetweenOneAndThree();
 
-    axios.get('/items')
+    axios.get('/items/')
     .then(response => {
       // handle success
       this.setState({
