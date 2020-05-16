@@ -20,4 +20,4 @@ EXPOSE 1234
 # asyncronouse statemenet, also weirdness w layering
 
 
-# CMD [ "npm", "start" ]
+CMD [ "npm", "start" ]
