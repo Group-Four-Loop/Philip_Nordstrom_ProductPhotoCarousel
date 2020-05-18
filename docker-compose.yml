@@ -5,8 +5,8 @@ services:
     container_name:
       photocarouselrob
     build: ./
-    depends_on:
-      - 'photos_db'
+    # depends_on:
+    #   - 'photos_db'
     ports:
       - '1235:1234'
     working_dir: /src/app
