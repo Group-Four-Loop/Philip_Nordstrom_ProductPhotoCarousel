@@ -30,7 +30,7 @@ const MainPhoto = styled.div`
 `;
 
 const AppContainer = styled.div`
-  outline: 2px solid black;
+  // outline: 2px solid black;
   display: flex;
 `;
 
@@ -229,7 +229,6 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        <h1>Nordstrom Photo Gallery</h1>
         <AppContainer>
           <CarouselContainer>
             <MoveCarouselBackwards moveBackwards={this.moveBackwards} moveBackwardsVisible={this.state.moveBackwardsVisible}/>

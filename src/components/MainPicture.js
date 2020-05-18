@@ -7,7 +7,7 @@ const Container = styled.div`
 `;
 
 const MainImage = styled.img`
-  width: 40%;
+  // width: 40%;
   height: auto;
   display: block;
   position: relative;
