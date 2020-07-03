@@ -2,7 +2,7 @@
 
 Retail application showcasing clothing item photos, different looks, with checkout functionality
 
-<!-- ![](popularDishes.gif) -->
+![](product-photo-carousel.gif)
 
 <!-- [Full video demo here](https://www.youtube.com/watch?v=nNCVeByWdPc&feature=youtu.be&t=35) -->
 
